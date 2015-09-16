@@ -1,0 +1,15 @@
+
+Team Salary:  49800  Team PPG:  116.449 Team Targets:  39
+Name               Team       PPG    $/Point  Touches/game
+-----------------  ------  ------  ---------  --------------
+Drew Brees         NO      21.749    358.637  1
+Chris Ivory        NYJ      9.963    471.745  14
+Carlos Hyde        SF       5.364    950.783  6
+Odell Beckham Jr.  NYG     26.417    333.119  0
+Brandin Cooks      NO      13.93     502.513  4
+Cole Beasley       Dal      6.561    502.972  3
+Kyle Rudolph       Min      6.567    532.968  2
+Julian Edelman     NE      17.065    392.616  9
+Ravens             Bal      8.833    328.314  0
+
+
