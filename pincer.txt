@@ -1,15 +1,153 @@
 
-Team Salary:  49800  Team PPG:  116.449 Team Targets:  39
-Name               Team       PPG    $/Point  Touches/game
------------------  ------  ------  ---------  --------------
-Drew Brees         NO      21.749    358.637  1
-Chris Ivory        NYJ      9.963    471.745  14
-Carlos Hyde        SF       5.364    950.783  6
-Odell Beckham Jr.  NYG     26.417    333.119  0
-Brandin Cooks      NO      13.93     502.513  4
-Cole Beasley       Dal      6.561    502.972  3
-Kyle Rudolph       Min      6.567    532.968  2
-Julian Edelman     NE      17.065    392.616  9
-Ravens             Bal      8.833    328.314  0
+Team Salary:  49800  Team PPG:  116.449 Team Targets:  93
+Name            Team       PPG    $/Point    Touches/game(2015)    Tinside20    %%Team    Tinside10    %%Team
+--------------  ------  ------  ---------  --------------------  -----------  --------  -----------  --------
+Drew Brees      NO      21.749    358.637                     1            0         0            0         0
+Chris Ivory     NYJ      9.963    471.745                    21            8        38            6        75
+Carlos Hyde     SF       5.364    950.783                    28            6        33            1        25
+Odell Beckham   NYG     26.417    333.119                     8            2        13            0         0
+Brandin Cooks   NO      13.93     502.513                     9            1         7            0         0
+Cole Beasley    DAL      6.561    502.972                     6            2         9            0         0
+Kyle Rudolph    MIN      6.567    532.968                     7            0         0            0         0
+Julian Edelman  NE      17.065    392.616                    13            1         6            1        14
+Ravens          BAL      8.833    328.314                     0            0         0            0         0
 
+Team Salary:  48900  Team PPG:  135.28 Team Targets:  97
+Name               Team       PPG    $/Point    Touches/game(2015)    Tinside20    %%Team    Tinside10    %%Team
+-----------------  ------  ------  ---------  --------------------  -----------  --------  -----------  --------
+Drew Brees         NO      21.749    358.637                     1            0         0            0         0
+Marshawn Lynch     SEA     19.839    362.922                    25            3        15            2        18
+Darren Sproles     PHI     10.773    324.886                    14            0         0            0         0
+A.J. Green         CIN     17.1      438.596                     8            2         8            0         0
+Doug Baldwin       SEA     11.372    369.328                     9            0         0            0         0
+Golden Tate        DET     17.353    363.05                      8            0         0            0         0
+Martellus Bennett  CHI     14.225    316.344                     7            0         0            0         0
+Alfred Morris      WAS     11.931    419.076                    25            2        25            2        50
+Bills              BUF     10.938    265.131                     0            0         0            0         0
+
+
+Team Salary:  49700  Team PPG:  141.114 Team Targets:  66
+Name              Team       PPG    $/Point    Touches/game(2015)    Tinside20    %%Team    Tinside10    %%Team
+----------------  ------  ------  ---------  --------------------  -----------  --------  -----------  --------
+Drew Brees        NO      21.749    358.637                     1            0         0            0         0
+Rashad Jennings   NYG     12.955    385.951                    14            4        26            3        60
+Andre Ellington   ARI     15.208    401.105                    15            3        27            3        75
+Michael Crabtree  OAK     10.138    404.419                     8            1        16            0         0
+Golden Tate       DET     17.353    363.05                      8            0         0            0         0
+Odell Beckham     NYG     26.417    333.119                     8            2        13            0         0
+Larry Donnell     NYG      9.831    315.329                     4            1         6            0         0
+Roddy White       ATL     15.65     370.607                     8            1        10            1        20
+Eagles            PHI     11.813    228.562                     0            0         0            0         0
+
+
+Team Salary:  49600  Team PPG:  136.871 Team Targets:  99
+Name               Team       PPG    $/Point    Touches/game(2015)    Tinside20    %%Team    Tinside10    %%Team
+-----------------  ------  ------  ---------  --------------------  -----------  --------  -----------  --------
+Joe Flacco         BAL     18.571    344.623                     0            0         0            0         0
+Matt Forte         CHI     22.538    341.645                    32            8        38            6        42
+Alfred Morris      WAS     11.931    419.076                    25            2        25            2        50
+Allen Hurns        JAC     10.044    378.335                     7            1        10            0         0
+Antonio Brown      PIT     25.682    342.652                    11            1         5            0         0
+Randall Cobb       GB      19.594    377.667                     5            1         5            1        16
+Heath Miller       PIT     10.394    336.733                    11            3        16            2        16
+Terrance Williams  DAL     10.117    415.143                     8            2         9            1        12
+Vikings            MIN      8        350                         0            0         0            0         0
+
+
+Team Salary:  50000  Team PPG:  135.427 Team Targets:  65
+Name             Team       PPG    $/Point    Touches/game(2015)    Tinside20    %%Team    Tinside10    %%Team
+---------------  ------  ------  ---------  --------------------  -----------  --------  -----------  --------
+Carson Palmer    ARI     18.923    354.066                     3            0         0            0         0
+Andre Ellington  ARI     15.208    401.105                    15            3        27            3        75
+Lamar Miller     MIA     14.525    378.657                    14            0         0            0         0
+Randall Cobb     GB      19.594    377.667                     5            1         5            1        16
+Taylor Gabriel   CLE      6.569    456.691                     4            0         0            0         0
+Roddy White      ATL     15.65     370.607                     8            1        10            1        20
+Zach Ertz        PHI      9.263    388.643                     8            1         7            0         0
+Odell Beckham    NYG     26.417    333.119                     8            2        13            0         0
+Seahawks         SEA      9.278    334.124                     0            0         0            0         0
+
+
+Team Salary:  49500  Team PPG:  137.58 Team Targets:  101
+Name               Team       PPG    $/Point    Touches/game(2015)    Tinside20    %%Team    Tinside10    %%Team
+-----------------  ------  ------  ---------  --------------------  -----------  --------  -----------  --------
+Carson Palmer      ARI     18.923    354.066                     3            0         0            0         0
+Matt Forte         CHI     22.538    341.645                    32            8        38            6        42
+Justin Forsett     BAL     16.233    381.938                    21            1        16            0         0
+Golden Tate        DET     17.353    363.05                      8            0         0            0         0
+Andre Johnson      IND     13.107    442.512                    10            2        14            2        18
+Terrance Williams  DAL     10.117    415.143                     8            2         9            1        12
+Jared Cook         STL      8.338    359.799                     6            0         0            0         0
+DeMarco Murray     PHI     24.033    291.266                    13            5        38            4        80
+Giants             NYG      6.938    374.748                     0            0         0            0         0
+
+
+Team Salary:  49900  Team PPG:  137.163 Team Targets:  69
+Name             Team       PPG    $/Point    Touches/game(2015)    Tinside20    %%Team    Tinside10    %%Team
+---------------  ------  ------  ---------  --------------------  -----------  --------  -----------  --------
+Drew Brees       NO      21.749    358.637                     1            0         0            0         0
+Andre Ellington  ARI     15.208    401.105                    15            3        27            3        75
+Mark Ingram      NO      15.762    374.318                    18            4        28            0         0
+Odell Beckham    NYG     26.417    333.119                     8            2        13            0         0
+Eddie Royal      CHI     11.575    319.654                     5            2         9            2        14
+Andre Johnson    IND     13.107    442.512                    10            2        14            2        18
+Larry Donnell    NYG      9.831    315.329                     4            1         6            0         0
+Jimmy Graham     SEA     14.681    395.068                     8            4        21            3        27
+Ravens           BAL      8.833    328.314                     0            0         0            0         0
+
+
+Team Salary:  48900  Team PPG:  136.289 Team Targets:  89
+Name              Team       PPG    $/Point    Touches/game(2015)    Tinside20    %%Team    Tinside10    %%Team
+----------------  ------  ------  ---------  --------------------  -----------  --------  -----------  --------
+Joe Flacco        BAL     18.571    344.623                     0            0         0            0         0
+Marshawn Lynch    SEA     19.839    362.922                    25            3        15            2        18
+Jamaal Charles    KC      17.093    444.626                    24            3        30            2        40
+Percy Harvin      BUF     10.5      428.571                     6            0         0            0         0
+Andre Johnson     IND     13.107    442.512                    10            2        14            2        18
+Michael Crabtree  OAK     10.138    404.419                     8            1        16            0         0
+Delanie Walker    TEN     12.133    280.227                     3            1         6            1        14
+DeMarco Murray    PHI     24.033    291.266                    13            5        38            4        80
+Texans            HOU     10.875    266.667                     0            0         0            0         0
+
+
+Team Salary:  49700  Team PPG:  135.387 Team Targets:  82
+Name              Team       PPG    $/Point    Touches/game(2015)    Tinside20    %%Team    Tinside10    %%Team
+----------------  ------  ------  ---------  --------------------  -----------  --------  -----------  --------
+Eli Manning       NYG     18.906    375.542                     1            0         0            0         0
+Alfred Morris     WAS     11.931    419.076                    25            2        25            2        50
+Lamar Miller      MIA     14.525    378.657                    14            0         0            0         0
+Michael Crabtree  OAK     10.138    404.419                     8            1        16            0         0
+Emmanuel Sanders  DEN     19.671    386.356                    12            0         0            0         0
+Randall Cobb      GB      19.594    377.667                     5            1         5            1        16
+Charles Clay      BUF      9.964    341.228                     4            0         0            0         0
+DeMarco Murray    PHI     24.033    291.266                    13            5        38            4        80
+Buccaneers        TB       6.625    392.453                     0            0         0            0         0
+
+
+Team Salary:  49300  Team PPG:  135.29 Team Targets:  85
+Name               Team       PPG    $/Point    Touches/game(2015)    Tinside20    %%Team    Tinside10    %%Team
+-----------------  ------  ------  ---------  --------------------  -----------  --------  -----------  --------
+Joe Flacco         BAL     18.571    344.623                     0            0         0            0         0
+Marshawn Lynch     SEA     19.839    362.922                    25            3        15            2        18
+Benny Cunningham   STL      7.925    555.205                    23            2        16            0         0
+Odell Beckham      NYG     26.417    333.119                     8            2        13            0         0
+James Jones        GB      11.1      423.423                     4            2        10            1        16
+Andre Johnson      IND     13.107    442.512                    10            2        14            2        18
+Martellus Bennett  CHI     14.225    316.344                     7            0         0            0         0
+Joique Bell        DET     13.231    347.668                     8            0         0            0         0
+Texans             HOU     10.875    266.667                     0            0         0            0         0
+
+
+Team Salary:  49600  Team PPG:  136.124 Team Targets:  89
+Name            Team       PPG    $/Point    Touches/game(2015)    Tinside20    %%Team    Tinside10    %%Team
+--------------  ------  ------  ---------  --------------------  -----------  --------  -----------  --------
+Eli Manning     NYG     18.906    375.542                     1            0         0            0         0
+Alfred Morris   WAS     11.931    419.076                    25            2        25            2        50
+Chris Ivory     NYJ      9.963    471.745                    21            8        38            6        75
+Randall Cobb    GB      19.594    377.667                     5            1         5            1        16
+Anquan Boldin   SF      13.913    409.689                     5            1         5            0         0
+Julian Edelman  NE      17.065    392.616                    13            1         6            1        14
+Dwayne Allen    IND      8.906    370.537                     6            2        14            2        18
+DeMarco Murray  PHI     24.033    291.266                    13            5        38            4        80
+Eagles          PHI     11.813    228.562                     0            0         0            0         0
 

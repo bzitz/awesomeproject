@@ -1,15 +1,16 @@
 import csv, random, nfldb, json
+from stats import Stats 
 class Team(object):
     def __init__(self):
-        self.qb = 'Drew Brees'
-        self.rb1 = 'Chris Ivory'
-        self.rb2 = 'Carlos Hyde'
-        self.wr1 = 'Odell Beckham'
-        self.wr2 = 'Brandin Cooks'
-        self.wr3 = 'Cole Beasley'
-        self.te = 'Kyle Rudolph'
+        self.qb = ''
+        self.rb1 = ''
+        self.rb2 = ''
+        self.wr1 = ''
+        self.wr2 = ''
+        self.wr3 = ''
+        self.te = ''
         self.flex = ''
-        self.dst = 'Ravens '
+        self.dst = ''
         self.team_maxsalary = 50000
         self.ppg = 0
         self.players = {}
@@ -32,6 +33,12 @@ class Team(object):
     def add_value(self):
         for i in self.players:
             self.target_pergame(i)
+            self.players[i]['teamAbbrev'] = self.players[i]['teamAbbrev'].upper()
+            stat = Stats()
+            self.players[i]['targin20'] = stat.targetin20(i)
+            self.players[i]['targin10'] = stat.targetin10(i)
+            self.players[i]['percentin20'] = stat.percent_targets(20,self.players[i]['teamAbbrev'],self.players[i]['targin20'])
+            self.players[i]['percentin10'] = stat.percent_targets(10,self.players[i]['teamAbbrev'],self.players[i]['targin10'])
             if float(self.players[i]['AvgPointsPerGame']) > 0:
                 value = float(self.players[i]['Salary']) / float(self.players[i]['AvgPointsPerGame'])
                 self.players[i]['Value'] = value
@@ -48,10 +55,10 @@ class Team(object):
                 total = total + (game.rushing_att + game.receiving_tar)
                 #print game.player, (game.rushing_att + game.receiving_tar)/16
             self.players[player]['tchpergame'] = int(total)
-            print player, total
 
     def starting_qbs(self):
-        qbs = ['Tom Brady','Ben Roethlisberger','Tyrod Taylor','Ryan Tannehill','Ryan Fitzpatrick','Joe Flacco', 'Andy Dalton', 'Brian Hoyer', 'Andrew Luck', 'Blake Bortles', 'Marcus Mariota','Peyton Manning', 'Alex Smith', 'Derek Carr', 'Philip Rivers', 'Tony Romo', 'Kirk Cousins', 'Sam Bradford', 'Eli Manning',  'Jay Cutler', 'Matthew Stafford', 'Jay Cutler', 'Aaron Rodgers', 'Teddy Bridgewater', 'Matt Ryan', 'Cam Newton', 'Drew Brees', 'Jameis Winston', 'Carson Palmer', 'Colin Kaepernick', 'Russell Wilson', 'Nick Foles' ]
+#        qbs = ['Tom Brady','Ben Roethlisberger','Tyrod Taylor','Ryan Tannehill','Ryan Fitzpatrick','Joe Flacco', 'Andy Dalton', 'Brian Hoyer', 'Andrew Luck', 'Blake Bortles', 'Marcus Mariota','Peyton Manning', 'Alex Smith', 'Derek Carr', 'Philip Rivers', 'Tony Romo', 'Kirk Cousins', 'Sam Bradford', 'Eli Manning',  'Jay Cutler', 'Matthew Stafford', 'Jay Cutler', 'Aaron Rodgers', 'Teddy Bridgewater', 'Matt Ryan', 'Cam Newton', 'Drew Brees', 'Jameis Winston', 'Carson Palmer', 'Colin Kaepernick', 'Russell Wilson', 'Nick Foles' ]
+        qbs = ['Drew Brees','Eli Manning','Carson Palmer','Joe Flacco']
         return qbs
     def add_toteam(self,pos,player):
         self.team[pos] = self.players[player]
