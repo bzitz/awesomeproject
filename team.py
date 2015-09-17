@@ -19,6 +19,8 @@ class Team(object):
         self.teamsalary = 0
         self.teamvalue = 0
         self.teamtouches = 0
+        self.teamtch20 = 0
+        self.teamtch10 = 0
 
     def import_json(self):
         jsonfile = open('dkplayers.json', "r")
@@ -58,7 +60,7 @@ class Team(object):
 
     def starting_qbs(self):
 #        qbs = ['Tom Brady','Ben Roethlisberger','Tyrod Taylor','Ryan Tannehill','Ryan Fitzpatrick','Joe Flacco', 'Andy Dalton', 'Brian Hoyer', 'Andrew Luck', 'Blake Bortles', 'Marcus Mariota','Peyton Manning', 'Alex Smith', 'Derek Carr', 'Philip Rivers', 'Tony Romo', 'Kirk Cousins', 'Sam Bradford', 'Eli Manning',  'Jay Cutler', 'Matthew Stafford', 'Jay Cutler', 'Aaron Rodgers', 'Teddy Bridgewater', 'Matt Ryan', 'Cam Newton', 'Drew Brees', 'Jameis Winston', 'Carson Palmer', 'Colin Kaepernick', 'Russell Wilson', 'Nick Foles' ]
-        qbs = ['Drew Brees','Eli Manning','Carson Palmer','Joe Flacco']
+        qbs = ['Ben Roethlisberger','Drew Brees','Eli Manning','Carson Palmer','Joe Flacco']
         return qbs
     def add_toteam(self,pos,player):
         self.team[pos] = self.players[player]
@@ -205,18 +207,36 @@ class Team(object):
         for x in positions:
             value = value + self.team[x]['Value']
         self.teamvalue = value
+        self.team['Value'] = self.teamvalue
     def team_salary(self):
         positions = self.return_pos()
         salary = 0
         for x in positions:
             salary = salary + int(self.team[x]['Salary'])
         self.teamsalary = salary
+        self.team['TeamSalary'] = self.teamsalary
     def team_avg_score(self):
         positions = self.return_pos()
         avgpergame = 0
         for x in positions:
             avgpergame = avgpergame + float(self.team[x]['AvgPointsPerGame'])
         self.teamavg = avgpergame 
+        self.team['Teamppg'] = self.teamavg
+    def team_tch20(self):
+        positions = self.return_pos()
+        tch20 = 0
+        for x in positions:
+            tch20 = tch20 + self.team[x]['targin20']
+        self.teamtch20 = tch20
+        self.team['TeamTch20'] = self.teamtch20
+    def team_tch10(self):
+        positions = self.return_pos()
+        tch10 = 0
+        for x in positions:
+            tch10 = tch10 + self.team[x]['targin10']
+        self.teamtch10 = tch10
+        self.team['TeamTch10'] = self.teamtch10
+
 
     def main(self):
         self.import_json()
@@ -225,6 +245,8 @@ class Team(object):
         self.team_salary()
         self.team_avg_score()
         self.team_touches()
+        self.team_tch20()
+        self.team_tch10()
         
 
 #new = Team()
