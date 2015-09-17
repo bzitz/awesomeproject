@@ -4,7 +4,7 @@ from tabulate import tabulate
 def generate_teams(t):
     teams = {}
 
-    itter = 100000
+    itter = 500000
     x = 0
     while x < itter:
         newteam = team.Team()
@@ -16,35 +16,36 @@ def generate_teams(t):
         x = x + 1
     sortedteams = {}
     for x in teams:
-        sortedteams[x]= ((teams[x]['Targets'] + int(teams[x]['Teamppg']) + (2 * teams[x]['TeamTch20']) + (4 * teams[x]['TeamTch10'])) / 4 )
-    top5 = heapq.nlargest(10,sortedteams, key=sortedteams.get)
+        sortedteams[x]= (teams[x]['Oppscore'])
+    top10 = heapq.nlargest(10,sortedteams, key=sortedteams.get)
     newteams = {}
-    for x in top5:
+    for x in top10:
         newteams[x] = teams[x]
         print '\n'
-        print "Team Salary: ", teams[x]['TeamSalary'], " Team PPG: ", teams[x]['Teamppg'] ,"Team Targets: ", teams[x]['Targets'], "Targin20", teams[x]['TeamTch20'], "Targin10", teams[x]['TeamTch10']
+        print "Team Salary: ", teams[x]['TeamSalary'], " Team OPP: ", teams[x]['Oppscore']
         positions = newteam.return_pos()
         table =[]
         for pos in positions:
+            if pos == 'dst':
+                oppscore = 0
+            else:
+                oppscore = teams[x][pos]['Oppscore']
             table.append([
                 teams[x][pos]['Name'],
                 teams[x][pos]['teamAbbrev'], 
+                teams[x][pos]['Salary'],
                 teams[x][pos]['AvgPointsPerGame'], 
                 teams[x][pos]['Value'], 
-                teams[x][pos]['tchpergame'], 
-                teams[x][pos]['targin20'],
-                teams[x][pos]['percentin20'],
-                teams[x][pos]['targin10'],
-                teams[x][pos]['percentin10'],
+                oppscore
             ])
                 
-        print tabulate(table, headers = ["Name","Team","PPG","$/Point","Touches/game(2015)","Tinside20","%%Team","Tinside10","%%Team"])
+        print tabulate(table, headers = ["Name","Team","Salary","PPG","$/Point","OppScore"])
     print "\n"
 
     return newteams
 x = 0
 teamlog = {}
-while x < 6:
+while x < 1:
     teamlog[x] = generate_teams(x)
     print x
     x = x + 1

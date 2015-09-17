@@ -1,80 +1,100 @@
 import nfldb
 class Stats(object):
     def __init__(self):
-        self.targets = 0
+        self.seasontargets = {}
         self.in20targets = 0
         self.in10targets = 0
         self.teamin20targets = 0
         self.teamin10targets =0
 
 
-    def target_pergame(self, player):
+    def playerstats(self, **kwargs):
+        player = kwargs['player']
         db = nfldb.connect()
         q = nfldb.Query(db)
-        q.game(season_year=2015, season_type='Regular')
+        q.game(season_year=kwargs['season'], season_type='Regular')
+        if kwargs['targtype'] == "non-redzone":
+            pos1 = nfldb.FieldPosition.from_str('OWN 1')
+            pos2 = nfldb.FieldPosition.from_str('OPP 21')
+        #OPP 20 to OPP 10 yardline
+        elif kwargs['targtype'] == 'redzone':
+            pos1 = nfldb.FieldPosition.from_str('OPP 20')
+            pos2 = nfldb.FieldPosition.from_str('OPP 11')
+        #OPP 10 to OPP 6
+        elif kwargs['targtype'] == 'goaline1':
+            pos1 = nfldb.FieldPosition.from_str('OPP 10')
+            pos2 = nfldb.FieldPosition.from_str('OPP 6')
+        # OPP 5 to OPP 3
+        elif kwargs['targtype'] == 'goaline2':
+            pos1 = nfldb.FieldPosition.from_str('OPP 5')
+            pos2 = nfldb.FieldPosition.from_str('OPP 3')
+        #OPP 2 or OPP 1
+        elif kwargs['targtype'] == 'goaline3':
+            pos1 = nfldb.FieldPosition.from_str('OPP 2')
+            pos2 = nfldb.FieldPosition.from_str('OPP 1')
+        
+        q.play(yardline__ge=pos1)
+        q.play(yardline__le=pos2)
         q.player(full_name= player)
-        total = 0
-        for game in q.as_aggregate():
-            total = total + (game.rushing_att + game.receiving_tar)
-        return int(total)
+        for pp in q.as_aggregate():
+            return pp
     
-    def targetin20(self, player):
-        db = nfldb.connect()
-        q = nfldb.Query(db)
-        opp20 = nfldb.FieldPosition.from_str('OPP 20')
-        q.game(season_year=2015, season_type='Regular')
-        q.play(yardline__ge=opp20)
-        q.player(full_name = player)
-        total = 0
-        for game in q.as_aggregate():
-            total = total + (game.rushing_att + game.receiving_tar)
-        return int(total)
-            
-    def targetin10(self, player):
-        db = nfldb.connect()
-        q = nfldb.Query(db)
-        opp20 = nfldb.FieldPosition.from_str('OPP 10')
-        q.game(season_year=2015, season_type='Regular')
-        q.play(yardline__ge=opp20)
-        q.player(full_name = player)
-        total = 0
-        for game in q.as_aggregate():
-            total = total + (game.rushing_att + game.receiving_tar)
-        return int(total)
+    def carries(self,player,zone,season):
+        car = self.playerstats(targtype=zone,player=player,season=season)
+        if car != None:
+            return car.rushing_att
+        else:
+            return int('0') 
+    def targets(self,player,zone,season):
+        tar = self.playerstats(targtype=zone,player=player,season=season)
+        if tar != None:
+            return tar.receiving_tar
+        else:
+            return int('0')
+    def completions(self,player,zone,season):
+        comp = self.playerstats(targtype=zone,player=player,season=season)
+        if comp != None:
+            return int(comp.passing_cmp)
+        else:
+            return int('0')
 
-    def teamtargetin20(self, team):
-        db = nfldb.connect()
-        q = nfldb.Query(db)
-        opp20 = nfldb.FieldPosition.from_str('OPP 20')
-        q.game(season_year=2015, season_type='Regular')
-        q.play(yardline__ge=opp20, pos_team = team)
-        return len(q.as_plays())
+    def qboppurtunity(self,player,season):
+        fp = ['non-redzone','redzone','goaline1','goaline2','goaline3']
+        stats = {}
+        for x in fp:
+            comp = self.completions(player,x,season)
+            stats[x] = {}
+            stats[x]['completions'] = comp
+        nrzcomp = stats['non-redzone']['completions'] * 1.07
+        rzcomp = stats['redzone']['completions'] * 2.63
+        gl1comp = stats['goaline1']['completions'] * 4.69
+        gl2comp = stats['goaline2']['completions'] * 7.09
+        gl3comp = stats['goaline3']['completions'] * 8.00
+        return nrzcomp + rzcomp + gl1comp + gl2comp + gl3comp
     
-    def teamtargetin10(self, team):
-        db = nfldb.connect()
-        q = nfldb.Query(db)
-        opp20 = nfldb.FieldPosition.from_str('OPP 10')
-        q.game(season_year=2015, season_type='Regular')
-        q.play(yardline__ge=opp20, pos_team = team)
-        return len(q.as_plays())
-            
-    def percent_targets(self, yard, team, player):
-        if yard == 20:
-            if team != 0 and player != 0:
-                print "20", team, player
-                percent = (float(player) / float(self.teamtargetin20(team))) * 100
-                print int(percent)
-            else: 
-                percent = 0
-        elif yard == 10: 
-            if team != 0 and player != 0:
-                print "10",team, player
-                percent = (float(player) / float(self.teamtargetin10(team))) * 100
-                print percent
-            else:
-                percent = 0
-        return int(percent)
+    def flexoppurtunity_index(self,player,season):
+        fp = ['non-redzone','redzone','goaline1','goaline2','goaline3']
+        stats = {}
+        for x in fp:
+            carries = self.carries(player,x,season)
+            targets = self.targets(player,x,season)
+            stats[x] = {}
+            stats[x]['carries'] = int(carries)
+            stats[x]['targets'] = int(targets)
+        nrzcarries = stats['non-redzone']['carries']
+        rzcarries = stats['redzone']['carries'] * 1.35
+        gl1carries = stats['goaline1']['carries'] * 2.03
+        gl2carries = stats['goaline2']['carries'] * 3.79
+        gl3carries = stats['goaline3']['carries'] * 6.66
+        nrztargets = stats['non-redzone']['targets'] * 1.84
+        rztargets = stats['redzone']['targets'] * 2.83
+        gl1targets = stats['goaline1']['targets'] * 4.31
+        gl2targets = stats['goaline2']['targets'] * 5.41
+        gl3targets = stats['goaline3']['targets'] * 6.58
+
+        return nrzcarries + rzcarries + gl1carries + gl2carries + gl3carries + nrztargets + rztargets + gl1targets + gl2targets + gl3targets
         
 
 
-        
+
+

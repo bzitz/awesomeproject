@@ -2,13 +2,13 @@ import csv, random, nfldb, json
 from stats import Stats 
 class Team(object):
     def __init__(self):
-        self.qb = ''
+        self.qb = 'Drew Brees'
         self.rb1 = ''
         self.rb2 = ''
-        self.wr1 = ''
-        self.wr2 = ''
+        self.wr1 = 'Brandin Cooks'
+        self.wr2 = 'Cole Beasley'
         self.wr3 = ''
-        self.te = ''
+        self.te = 'Heath Miller'
         self.flex = ''
         self.dst = ''
         self.team_maxsalary = 50000
@@ -21,6 +21,7 @@ class Team(object):
         self.teamtouches = 0
         self.teamtch20 = 0
         self.teamtch10 = 0
+        self.teamopp = 0
 
     def import_json(self):
         jsonfile = open('dkplayers.json', "r")
@@ -37,16 +38,17 @@ class Team(object):
             self.target_pergame(i)
             self.players[i]['teamAbbrev'] = self.players[i]['teamAbbrev'].upper()
             stat = Stats()
-            self.players[i]['targin20'] = stat.targetin20(i)
-            self.players[i]['targin10'] = stat.targetin10(i)
-            self.players[i]['percentin20'] = stat.percent_targets(20,self.players[i]['teamAbbrev'],self.players[i]['targin20'])
-            self.players[i]['percentin10'] = stat.percent_targets(10,self.players[i]['teamAbbrev'],self.players[i]['targin10'])
             if float(self.players[i]['AvgPointsPerGame']) > 0:
                 value = float(self.players[i]['Salary']) / float(self.players[i]['AvgPointsPerGame'])
                 self.players[i]['Value'] = value
             else:
                 value = 0
                 self.players[i]['Value'] = value
+            if self.players[i]['Position'] != 'QB' and self.players[i]['Position'] != 'DST':
+                self.players[i]['Oppscore'] = stat.flexoppurtunity_index(i,2015)
+            if self.players[i]['Position'] == 'QB':
+                self.players[i]['Oppscore'] = stat.qboppurtunity(i,2015)
+                print i, self.players[i]['Oppscore']
     def target_pergame(self, player):
             db = nfldb.connect()
             q = nfldb.Query(db)
@@ -236,6 +238,15 @@ class Team(object):
             tch10 = tch10 + self.team[x]['targin10']
         self.teamtch10 = tch10
         self.team['TeamTch10'] = self.teamtch10
+    def team_opp(self):
+        opp = 0
+        pos = self.return_pos()
+        for x in pos:
+            if x != 'dst':
+                opp = opp + self.team[x]['Oppscore']
+        self.teamopp = opp
+        self.team['Oppscore'] = self.teamopp
+
 
 
     def main(self):
@@ -244,9 +255,8 @@ class Team(object):
         self.team_value()
         self.team_salary()
         self.team_avg_score()
-        self.team_touches()
-        self.team_tch20()
-        self.team_tch10()
+        self.team_opp()
+        
         
 
 #new = Team()

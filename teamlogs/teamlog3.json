@@ -1,41 +1,30 @@
 {
   "0": {
-    "104481": {
+    "1409": {
       "flex": {
-        "Salary": "7700", 
-        "Name": "Matt Forte", 
-        "GameInfo": "Ari@Chi 01:00PM ET", 
-        "Value": 251.63398692810458, 
-        "AvgPointsPerGame": "30.600", 
-        "tchpergame": 32, 
+        "Salary": "4500", 
+        "Name": "Bishop Sankey", 
+        "GameInfo": "Ten@Cle 01:00PM ET", 
+        "Value": 199.1150442477876, 
+        "AvgPointsPerGame": "22.600", 
+        "tchpergame": 16, 
         "Position": "RB", 
-        "teamAbbrev": "CHI", 
-        "Oppscore": 59.81
+        "teamAbbrev": "TEN", 
+        "Oppscore": 26.009999999999998
       }, 
-      "Teamppg": 177.7, 
+      "Teamppg": 155.6, 
       "dst": {
-        "Salary": "3300", 
-        "Name": "Dolphins ", 
-        "GameInfo": "Mia@JAC 04:05PM ET", 
-        "Value": 220.0, 
-        "AvgPointsPerGame": "15.000", 
+        "Salary": "2900", 
+        "Name": "Browns ", 
+        "GameInfo": "Ten@Cle 01:00PM ET", 
+        "Value": 2900.0, 
+        "AvgPointsPerGame": "1.000", 
         "tchpergame": 0, 
         "Position": "DST", 
-        "teamAbbrev": "MIA"
+        "teamAbbrev": "CLE"
       }, 
-      "Value": 2846.083879347545, 
+      "Value": 5911.530953635387, 
       "rb2": {
-        "Salary": "4700", 
-        "Name": "Chris Ivory", 
-        "GameInfo": "NYJ@Ind 08:30PM ET", 
-        "Value": 204.34782608695653, 
-        "AvgPointsPerGame": "23.000", 
-        "tchpergame": 21, 
-        "Position": "RB", 
-        "teamAbbrev": "NYJ", 
-        "Oppscore": 40.07000000000001
-      }, 
-      "rb1": {
         "Salary": "4000", 
         "Name": "Danny Woodhead", 
         "GameInfo": "SD@Cin 01:00PM ET", 
@@ -46,7 +35,18 @@
         "teamAbbrev": "SD", 
         "Oppscore": 34.95
       }, 
-      "Oppscore": 270.52, 
+      "rb1": {
+        "Salary": "7700", 
+        "Name": "Matt Forte", 
+        "GameInfo": "Ari@Chi 01:00PM ET", 
+        "Value": 251.63398692810458, 
+        "AvgPointsPerGame": "30.600", 
+        "tchpergame": 32, 
+        "Position": "RB", 
+        "teamAbbrev": "CHI", 
+        "Oppscore": 59.81
+      }, 
+      "Oppscore": 252.38000000000002, 
       "qb": {
         "Salary": "7800", 
         "Name": "Drew Brees", 
@@ -70,15 +70,15 @@
         "Oppscore": 13.02
       }, 
       "wr3": {
-        "Salary": "7400", 
-        "Name": "DeAndre Hopkins", 
-        "GameInfo": "Hou@Car 01:00PM ET", 
-        "Value": 225.609756097561, 
-        "AvgPointsPerGame": "32.800", 
-        "tchpergame": 13, 
+        "Salary": "5500", 
+        "Name": "Vincent Jackson", 
+        "GameInfo": "TB@NO 01:00PM ET", 
+        "Value": 604.3956043956044, 
+        "AvgPointsPerGame": "9.100", 
+        "tchpergame": 11, 
         "Position": "WR", 
-        "teamAbbrev": "HOU", 
-        "Oppscore": 31.94
+        "teamAbbrev": "TB", 
+        "Oppscore": 28.64
       }, 
       "wr1": {
         "Salary": "7000", 
@@ -92,43 +92,20 @@
         "Oppscore": 16.71
       }, 
       "te": {
-        "Salary": "3500", 
-        "Name": "Heath Miller", 
-        "GameInfo": "SF@Pit 01:00PM ET", 
-        "Value": 213.41463414634148, 
-        "AvgPointsPerGame": "16.400", 
-        "tchpergame": 11, 
+        "Salary": "7300", 
+        "Name": "Rob Gronkowski", 
+        "GameInfo": "NE@Buf 01:00PM ET", 
+        "Value": 225.30864197530866, 
+        "AvgPointsPerGame": "32.400", 
+        "tchpergame": 8, 
         "Position": "TE", 
-        "teamAbbrev": "PIT", 
-        "Oppscore": 28.439999999999998
+        "teamAbbrev": "NE", 
+        "Oppscore": 27.66
       }, 
-      "TeamSalary": 48700
+      "TeamSalary": 50000
     }, 
-    "37988": {
+    "9410": {
       "flex": {
-        "Salary": "4700", 
-        "Name": "Chris Ivory", 
-        "GameInfo": "NYJ@Ind 08:30PM ET", 
-        "Value": 204.34782608695653, 
-        "AvgPointsPerGame": "23.000", 
-        "tchpergame": 21, 
-        "Position": "RB", 
-        "teamAbbrev": "NYJ", 
-        "Oppscore": 40.07000000000001
-      }, 
-      "Teamppg": 163.3, 
-      "dst": {
-        "Salary": "2800", 
-        "Name": "Jets ", 
-        "GameInfo": "NYJ@Ind 08:30PM ET", 
-        "Value": 164.7058823529412, 
-        "AvgPointsPerGame": "17.000", 
-        "tchpergame": 0, 
-        "Position": "DST", 
-        "teamAbbrev": "NYJ"
-      }, 
-      "Value": 3072.258616883625, 
-      "rb2": {
         "Salary": "7700", 
         "Name": "Matt Forte", 
         "GameInfo": "Ari@Chi 01:00PM ET", 
@@ -138,19 +115,42 @@
         "Position": "RB", 
         "teamAbbrev": "CHI", 
         "Oppscore": 59.81
+      }, 
+      "Teamppg": 155.79999999999998, 
+      "dst": {
+        "Salary": "3100", 
+        "Name": "Panthers ", 
+        "GameInfo": "Hou@Car 01:00PM ET", 
+        "Value": 147.61904761904762, 
+        "AvgPointsPerGame": "21.000", 
+        "tchpergame": 0, 
+        "Position": "DST", 
+        "teamAbbrev": "CAR"
+      }, 
+      "Value": 3119.443210135113, 
+      "rb2": {
+        "Salary": "4000", 
+        "Name": "Danny Woodhead", 
+        "GameInfo": "SD@Cin 01:00PM ET", 
+        "Value": 180.18018018018017, 
+        "AvgPointsPerGame": "22.200", 
+        "tchpergame": 19, 
+        "Position": "RB", 
+        "teamAbbrev": "SD", 
+        "Oppscore": 34.95
       }, 
       "rb1": {
         "Salary": "7200", 
-        "Name": "Eddie Lacy", 
+        "Name": "Marshawn Lynch", 
         "GameInfo": "Sea@GB 08:30PM ET", 
-        "Value": 402.2346368715084, 
-        "AvgPointsPerGame": "17.900", 
-        "tchpergame": 22, 
+        "Value": 413.7931034482759, 
+        "AvgPointsPerGame": "17.400", 
+        "tchpergame": 25, 
         "Position": "RB", 
-        "teamAbbrev": "GB", 
-        "Oppscore": 33.7
+        "teamAbbrev": "SEA", 
+        "Oppscore": 35.370000000000005
       }, 
-      "Oppscore": 270.37, 
+      "Oppscore": 246.76000000000002, 
       "qb": {
         "Salary": "7800", 
         "Name": "Drew Brees", 
@@ -174,15 +174,15 @@
         "Oppscore": 13.02
       }, 
       "wr3": {
-        "Salary": "5900", 
-        "Name": "Jarvis Landry", 
-        "GameInfo": "Mia@JAC 04:05PM ET", 
-        "Value": 285.024154589372, 
-        "AvgPointsPerGame": "20.700", 
-        "tchpergame": 13, 
+        "Salary": "3800", 
+        "Name": "Markus Wheaton", 
+        "GameInfo": "SF@Pit 01:00PM ET", 
+        "Value": 361.9047619047619, 
+        "AvgPointsPerGame": "10.500", 
+        "tchpergame": 7, 
         "Position": "WR", 
-        "teamAbbrev": "MIA", 
-        "Oppscore": 33.040000000000006
+        "teamAbbrev": "PIT", 
+        "Oppscore": 12.88
       }, 
       "wr1": {
         "Salary": "7000", 
@@ -206,33 +206,10 @@
         "teamAbbrev": "PIT", 
         "Oppscore": 28.439999999999998
       }, 
-      "TeamSalary": 49900
+      "TeamSalary": 47400
     }, 
-    "246342": {
+    "2939": {
       "flex": {
-        "Salary": "4000", 
-        "Name": "Danny Woodhead", 
-        "GameInfo": "SD@Cin 01:00PM ET", 
-        "Value": 180.18018018018017, 
-        "AvgPointsPerGame": "22.200", 
-        "tchpergame": 19, 
-        "Position": "RB", 
-        "teamAbbrev": "SD", 
-        "Oppscore": 34.95
-      }, 
-      "Teamppg": 170.5, 
-      "dst": {
-        "Salary": "2800", 
-        "Name": "Vikings ", 
-        "GameInfo": "Det@Min 01:00PM ET", 
-        "Value": 466.6666666666667, 
-        "AvgPointsPerGame": "6.000", 
-        "tchpergame": 0, 
-        "Position": "DST", 
-        "teamAbbrev": "MIN"
-      }, 
-      "Value": 3072.343102055379, 
-      "rb2": {
         "Salary": "7700", 
         "Name": "Matt Forte", 
         "GameInfo": "Ari@Chi 01:00PM ET", 
@@ -243,7 +220,19 @@
         "teamAbbrev": "CHI", 
         "Oppscore": 59.81
       }, 
-      "rb1": {
+      "Teamppg": 141.60000000000002, 
+      "dst": {
+        "Salary": "2600", 
+        "Name": "Jaguars ", 
+        "GameInfo": "Mia@JAC 04:05PM ET", 
+        "Value": 371.42857142857144, 
+        "AvgPointsPerGame": "7.000", 
+        "tchpergame": 0, 
+        "Position": "DST", 
+        "teamAbbrev": "JAC"
+      }, 
+      "Value": 3176.327529040245, 
+      "rb2": {
         "Salary": "4700", 
         "Name": "Chris Ivory", 
         "GameInfo": "NYJ@Ind 08:30PM ET", 
@@ -254,7 +243,18 @@
         "teamAbbrev": "NYJ", 
         "Oppscore": 40.07000000000001
       }, 
-      "Oppscore": 271.84000000000003, 
+      "rb1": {
+        "Salary": "3400", 
+        "Name": "Dion Lewis", 
+        "GameInfo": "NE@Buf 01:00PM ET", 
+        "Value": 212.5, 
+        "AvgPointsPerGame": "16.000", 
+        "tchpergame": 20, 
+        "Position": "RB", 
+        "teamAbbrev": "NE", 
+        "Oppscore": 24.9
+      }, 
+      "Oppscore": 245.79000000000002, 
       "qb": {
         "Salary": "7800", 
         "Name": "Drew Brees", 
@@ -278,15 +278,15 @@
         "Oppscore": 13.02
       }, 
       "wr3": {
-        "Salary": "7100", 
-        "Name": "Keenan Allen", 
-        "GameInfo": "SD@Cin 01:00PM ET", 
-        "Value": 205.2023121387283, 
-        "AvgPointsPerGame": "34.600", 
-        "tchpergame": 17, 
+        "Salary": "4600", 
+        "Name": "Donte Moncrief", 
+        "GameInfo": "NYJ@Ind 08:30PM ET", 
+        "Value": 277.10843373493975, 
+        "AvgPointsPerGame": "16.600", 
+        "tchpergame": 11, 
         "Position": "WR", 
-        "teamAbbrev": "SD", 
-        "Oppscore": 33.260000000000005
+        "teamAbbrev": "IND", 
+        "Oppscore": 27.450000000000003
       }, 
       "wr1": {
         "Salary": "7000", 
@@ -300,19 +300,19 @@
         "Oppscore": 16.71
       }, 
       "te": {
-        "Salary": "3500", 
-        "Name": "Heath Miller", 
-        "GameInfo": "SF@Pit 01:00PM ET", 
-        "Value": 213.41463414634148, 
-        "AvgPointsPerGame": "16.400", 
-        "tchpergame": 11, 
+        "Salary": "3300", 
+        "Name": "Dwayne Allen", 
+        "GameInfo": "NYJ@Ind 08:30PM ET", 
+        "Value": 308.41121495327104, 
+        "AvgPointsPerGame": "10.700", 
+        "tchpergame": 6, 
         "Position": "TE", 
-        "teamAbbrev": "PIT", 
-        "Oppscore": 28.439999999999998
+        "teamAbbrev": "IND", 
+        "Oppscore": 18.25
       }, 
-      "TeamSalary": 47900
+      "TeamSalary": 44400
     }, 
-    "167553": {
+    "837": {
       "flex": {
         "Salary": "5000", 
         "Name": "Alfred Morris", 
@@ -324,539 +324,134 @@
         "teamAbbrev": "WAS", 
         "Oppscore": 33.45
       }, 
-      "Teamppg": 144.5, 
-      "dst": {
-        "Salary": "2400", 
-        "Name": "Raiders ", 
-        "GameInfo": "Bal@Oak 04:05PM ET", 
-        "Value": 2400.0, 
-        "AvgPointsPerGame": "1.000", 
-        "tchpergame": 0, 
-        "Position": "DST", 
-        "teamAbbrev": "OAK"
-      }, 
-      "Value": 5236.443925473745, 
-      "rb2": {
-        "Salary": "4700", 
-        "Name": "Chris Ivory", 
-        "GameInfo": "NYJ@Ind 08:30PM ET", 
-        "Value": 204.34782608695653, 
-        "AvgPointsPerGame": "23.000", 
-        "tchpergame": 21, 
-        "Position": "RB", 
-        "teamAbbrev": "NYJ", 
-        "Oppscore": 40.07000000000001
-      }, 
-      "rb1": {
-        "Salary": "7700", 
-        "Name": "Matt Forte", 
-        "GameInfo": "Ari@Chi 01:00PM ET", 
-        "Value": 251.63398692810458, 
-        "AvgPointsPerGame": "30.600", 
-        "tchpergame": 32, 
-        "Position": "RB", 
-        "teamAbbrev": "CHI", 
-        "Oppscore": 59.81
-      }, 
-      "Oppscore": 270.12000000000006, 
-      "qb": {
-        "Salary": "7800", 
-        "Name": "Drew Brees", 
-        "GameInfo": "TB@NO 01:00PM ET", 
-        "Value": 380.4878048780488, 
-        "AvgPointsPerGame": "20.500", 
-        "tchpergame": 1, 
-        "Position": "QB", 
-        "teamAbbrev": "NO", 
-        "Oppscore": 45.580000000000005
-      }, 
-      "wr2": {
-        "Salary": "3300", 
-        "Name": "Cole Beasley", 
-        "GameInfo": "Dal@Phi 04:25PM ET", 
-        "Value": 417.72151898734177, 
-        "AvgPointsPerGame": "7.900", 
-        "tchpergame": 6, 
-        "Position": "WR", 
-        "teamAbbrev": "DAL", 
-        "Oppscore": 13.02
-      }, 
-      "wr3": {
-        "Salary": "5900", 
-        "Name": "Jarvis Landry", 
-        "GameInfo": "Mia@JAC 04:05PM ET", 
-        "Value": 285.024154589372, 
-        "AvgPointsPerGame": "20.700", 
-        "tchpergame": 13, 
-        "Position": "WR", 
-        "teamAbbrev": "MIA", 
-        "Oppscore": 33.040000000000006
-      }, 
-      "wr1": {
-        "Salary": "7000", 
-        "Name": "Brandin Cooks", 
-        "GameInfo": "TB@NO 01:00PM ET", 
-        "Value": 752.6881720430107, 
-        "AvgPointsPerGame": "9.300", 
-        "tchpergame": 9, 
-        "Position": "WR", 
-        "teamAbbrev": "NO", 
-        "Oppscore": 16.71
-      }, 
-      "te": {
-        "Salary": "3500", 
-        "Name": "Heath Miller", 
-        "GameInfo": "SF@Pit 01:00PM ET", 
-        "Value": 213.41463414634148, 
-        "AvgPointsPerGame": "16.400", 
-        "tchpergame": 11, 
-        "Position": "TE", 
-        "teamAbbrev": "PIT", 
-        "Oppscore": 28.439999999999998
-      }, 
-      "TeamSalary": 47300
-    }, 
-    "109352": {
-      "flex": {
-        "Salary": "7700", 
-        "Name": "Matt Forte", 
-        "GameInfo": "Ari@Chi 01:00PM ET", 
-        "Value": 251.63398692810458, 
-        "AvgPointsPerGame": "30.600", 
-        "tchpergame": 32, 
-        "Position": "RB", 
-        "teamAbbrev": "CHI", 
-        "Oppscore": 59.81
-      }, 
-      "Teamppg": 155.3, 
-      "dst": {
-        "Salary": "2900", 
-        "Name": "Bills ", 
-        "GameInfo": "NE@Buf 01:00PM ET", 
-        "Value": 322.22222222222223, 
-        "AvgPointsPerGame": "9.000", 
-        "tchpergame": 0, 
-        "Position": "DST", 
-        "teamAbbrev": "BUF"
-      }, 
-      "Value": 3229.7749567529063, 
-      "rb2": {
-        "Salary": "7200", 
-        "Name": "Eddie Lacy", 
-        "GameInfo": "Sea@GB 08:30PM ET", 
-        "Value": 402.2346368715084, 
-        "AvgPointsPerGame": "17.900", 
-        "tchpergame": 22, 
-        "Position": "RB", 
-        "teamAbbrev": "GB", 
-        "Oppscore": 33.7
-      }, 
-      "rb1": {
-        "Salary": "4700", 
-        "Name": "Chris Ivory", 
-        "GameInfo": "NYJ@Ind 08:30PM ET", 
-        "Value": 204.34782608695653, 
-        "AvgPointsPerGame": "23.000", 
-        "tchpergame": 21, 
-        "Position": "RB", 
-        "teamAbbrev": "NYJ", 
-        "Oppscore": 40.07000000000001
-      }, 
-      "Oppscore": 270.37, 
-      "qb": {
-        "Salary": "7800", 
-        "Name": "Drew Brees", 
-        "GameInfo": "TB@NO 01:00PM ET", 
-        "Value": 380.4878048780488, 
-        "AvgPointsPerGame": "20.500", 
-        "tchpergame": 1, 
-        "Position": "QB", 
-        "teamAbbrev": "NO", 
-        "Oppscore": 45.580000000000005
-      }, 
-      "wr2": {
-        "Salary": "3300", 
-        "Name": "Cole Beasley", 
-        "GameInfo": "Dal@Phi 04:25PM ET", 
-        "Value": 417.72151898734177, 
-        "AvgPointsPerGame": "7.900", 
-        "tchpergame": 6, 
-        "Position": "WR", 
-        "teamAbbrev": "DAL", 
-        "Oppscore": 13.02
-      }, 
-      "wr3": {
-        "Salary": "5900", 
-        "Name": "Jarvis Landry", 
-        "GameInfo": "Mia@JAC 04:05PM ET", 
-        "Value": 285.024154589372, 
-        "AvgPointsPerGame": "20.700", 
-        "tchpergame": 13, 
-        "Position": "WR", 
-        "teamAbbrev": "MIA", 
-        "Oppscore": 33.040000000000006
-      }, 
-      "wr1": {
-        "Salary": "7000", 
-        "Name": "Brandin Cooks", 
-        "GameInfo": "TB@NO 01:00PM ET", 
-        "Value": 752.6881720430107, 
-        "AvgPointsPerGame": "9.300", 
-        "tchpergame": 9, 
-        "Position": "WR", 
-        "teamAbbrev": "NO", 
-        "Oppscore": 16.71
-      }, 
-      "te": {
-        "Salary": "3500", 
-        "Name": "Heath Miller", 
-        "GameInfo": "SF@Pit 01:00PM ET", 
-        "Value": 213.41463414634148, 
-        "AvgPointsPerGame": "16.400", 
-        "tchpergame": 11, 
-        "Position": "TE", 
-        "teamAbbrev": "PIT", 
-        "Oppscore": 28.439999999999998
-      }, 
-      "TeamSalary": 50000
-    }, 
-    "274583": {
-      "flex": {
-        "Salary": "4700", 
-        "Name": "Chris Ivory", 
-        "GameInfo": "NYJ@Ind 08:30PM ET", 
-        "Value": 204.34782608695653, 
-        "AvgPointsPerGame": "23.000", 
-        "tchpergame": 21, 
-        "Position": "RB", 
-        "teamAbbrev": "NYJ", 
-        "Oppscore": 40.07000000000001
-      }, 
-      "Teamppg": 146.8, 
-      "dst": {
-        "Salary": "2400", 
-        "Name": "Raiders ", 
-        "GameInfo": "Bal@Oak 04:05PM ET", 
-        "Value": 2400.0, 
-        "AvgPointsPerGame": "1.000", 
-        "tchpergame": 0, 
-        "Position": "DST", 
-        "teamAbbrev": "OAK"
-      }, 
-      "Value": 5319.111201107451, 
-      "rb2": {
-        "Salary": "7200", 
-        "Name": "Marshawn Lynch", 
-        "GameInfo": "Sea@GB 08:30PM ET", 
-        "Value": 413.7931034482759, 
-        "AvgPointsPerGame": "17.400", 
-        "tchpergame": 25, 
-        "Position": "RB", 
-        "teamAbbrev": "SEA", 
-        "Oppscore": 35.370000000000005
-      }, 
-      "rb1": {
-        "Salary": "7700", 
-        "Name": "Matt Forte", 
-        "GameInfo": "Ari@Chi 01:00PM ET", 
-        "Value": 251.63398692810458, 
-        "AvgPointsPerGame": "30.600", 
-        "tchpergame": 32, 
-        "Position": "RB", 
-        "teamAbbrev": "CHI", 
-        "Oppscore": 59.81
-      }, 
-      "Oppscore": 272.04, 
-      "qb": {
-        "Salary": "7800", 
-        "Name": "Drew Brees", 
-        "GameInfo": "TB@NO 01:00PM ET", 
-        "Value": 380.4878048780488, 
-        "AvgPointsPerGame": "20.500", 
-        "tchpergame": 1, 
-        "Position": "QB", 
-        "teamAbbrev": "NO", 
-        "Oppscore": 45.580000000000005
-      }, 
-      "wr2": {
-        "Salary": "3300", 
-        "Name": "Cole Beasley", 
-        "GameInfo": "Dal@Phi 04:25PM ET", 
-        "Value": 417.72151898734177, 
-        "AvgPointsPerGame": "7.900", 
-        "tchpergame": 6, 
-        "Position": "WR", 
-        "teamAbbrev": "DAL", 
-        "Oppscore": 13.02
-      }, 
-      "wr3": {
-        "Salary": "5900", 
-        "Name": "Jarvis Landry", 
-        "GameInfo": "Mia@JAC 04:05PM ET", 
-        "Value": 285.024154589372, 
-        "AvgPointsPerGame": "20.700", 
-        "tchpergame": 13, 
-        "Position": "WR", 
-        "teamAbbrev": "MIA", 
-        "Oppscore": 33.040000000000006
-      }, 
-      "wr1": {
-        "Salary": "7000", 
-        "Name": "Brandin Cooks", 
-        "GameInfo": "TB@NO 01:00PM ET", 
-        "Value": 752.6881720430107, 
-        "AvgPointsPerGame": "9.300", 
-        "tchpergame": 9, 
-        "Position": "WR", 
-        "teamAbbrev": "NO", 
-        "Oppscore": 16.71
-      }, 
-      "te": {
-        "Salary": "3500", 
-        "Name": "Heath Miller", 
-        "GameInfo": "SF@Pit 01:00PM ET", 
-        "Value": 213.41463414634148, 
-        "AvgPointsPerGame": "16.400", 
-        "tchpergame": 11, 
-        "Position": "TE", 
-        "teamAbbrev": "PIT", 
-        "Oppscore": 28.439999999999998
-      }, 
-      "TeamSalary": 49500
-    }, 
-    "76440": {
-      "flex": {
-        "Salary": "4700", 
-        "Name": "Chris Ivory", 
-        "GameInfo": "NYJ@Ind 08:30PM ET", 
-        "Value": 204.34782608695653, 
-        "AvgPointsPerGame": "23.000", 
-        "tchpergame": 21, 
-        "Position": "RB", 
-        "teamAbbrev": "NYJ", 
-        "Oppscore": 40.07000000000001
-      }, 
-      "Teamppg": 178.50000000000003, 
-      "dst": {
-        "Salary": "2900", 
-        "Name": "Browns ", 
-        "GameInfo": "Ten@Cle 01:00PM ET", 
-        "Value": 2900.0, 
-        "AvgPointsPerGame": "1.000", 
-        "tchpergame": 0, 
-        "Position": "DST", 
-        "teamAbbrev": "CLE"
-      }, 
-      "Value": 5470.382618844896, 
-      "rb2": {
-        "Salary": "5100", 
-        "Name": "Carlos Hyde", 
-        "GameInfo": "SF@Pit 01:00PM ET", 
-        "Value": 144.88636363636363, 
-        "AvgPointsPerGame": "35.200", 
-        "tchpergame": 28, 
-        "Position": "RB", 
-        "teamAbbrev": "SF", 
-        "Oppscore": 33.1
-      }, 
-      "rb1": {
-        "Salary": "7700", 
-        "Name": "Matt Forte", 
-        "GameInfo": "Ari@Chi 01:00PM ET", 
-        "Value": 251.63398692810458, 
-        "AvgPointsPerGame": "30.600", 
-        "tchpergame": 32, 
-        "Position": "RB", 
-        "teamAbbrev": "CHI", 
-        "Oppscore": 59.81
-      }, 
-      "Oppscore": 269.99, 
-      "qb": {
-        "Salary": "7800", 
-        "Name": "Drew Brees", 
-        "GameInfo": "TB@NO 01:00PM ET", 
-        "Value": 380.4878048780488, 
-        "AvgPointsPerGame": "20.500", 
-        "tchpergame": 1, 
-        "Position": "QB", 
-        "teamAbbrev": "NO", 
-        "Oppscore": 45.580000000000005
-      }, 
-      "wr2": {
-        "Salary": "3300", 
-        "Name": "Cole Beasley", 
-        "GameInfo": "Dal@Phi 04:25PM ET", 
-        "Value": 417.72151898734177, 
-        "AvgPointsPerGame": "7.900", 
-        "tchpergame": 6, 
-        "Position": "WR", 
-        "teamAbbrev": "DAL", 
-        "Oppscore": 13.02
-      }, 
-      "wr3": {
-        "Salary": "7100", 
-        "Name": "Keenan Allen", 
-        "GameInfo": "SD@Cin 01:00PM ET", 
-        "Value": 205.2023121387283, 
-        "AvgPointsPerGame": "34.600", 
-        "tchpergame": 17, 
-        "Position": "WR", 
-        "teamAbbrev": "SD", 
-        "Oppscore": 33.260000000000005
-      }, 
-      "wr1": {
-        "Salary": "7000", 
-        "Name": "Brandin Cooks", 
-        "GameInfo": "TB@NO 01:00PM ET", 
-        "Value": 752.6881720430107, 
-        "AvgPointsPerGame": "9.300", 
-        "tchpergame": 9, 
-        "Position": "WR", 
-        "teamAbbrev": "NO", 
-        "Oppscore": 16.71
-      }, 
-      "te": {
-        "Salary": "3500", 
-        "Name": "Heath Miller", 
-        "GameInfo": "SF@Pit 01:00PM ET", 
-        "Value": 213.41463414634148, 
-        "AvgPointsPerGame": "16.400", 
-        "tchpergame": 11, 
-        "Position": "TE", 
-        "teamAbbrev": "PIT", 
-        "Oppscore": 28.439999999999998
-      }, 
-      "TeamSalary": 49100
-    }, 
-    "96986": {
-      "flex": {
-        "Salary": "4700", 
-        "Name": "Chris Ivory", 
-        "GameInfo": "NYJ@Ind 08:30PM ET", 
-        "Value": 204.34782608695653, 
-        "AvgPointsPerGame": "23.000", 
-        "tchpergame": 21, 
-        "Position": "RB", 
-        "teamAbbrev": "NYJ", 
-        "Oppscore": 40.07000000000001
-      }, 
-      "Teamppg": 166.5, 
-      "dst": {
-        "Salary": "2600", 
-        "Name": "Jaguars ", 
-        "GameInfo": "Mia@JAC 04:05PM ET", 
-        "Value": 371.42857142857144, 
-        "AvgPointsPerGame": "7.000", 
-        "tchpergame": 0, 
-        "Position": "DST", 
-        "teamAbbrev": "JAC"
-      }, 
-      "Value": 3105.0643615208246, 
-      "rb2": {
-        "Salary": "5300", 
-        "Name": "DeAngelo Williams", 
-        "GameInfo": "SF@Pit 01:00PM ET", 
-        "Value": 308.13953488372096, 
-        "AvgPointsPerGame": "17.200", 
-        "tchpergame": 22, 
-        "Position": "RB", 
-        "teamAbbrev": "PIT", 
-        "Oppscore": 33.370000000000005
-      }, 
-      "rb1": {
-        "Salary": "7700", 
-        "Name": "Matt Forte", 
-        "GameInfo": "Ari@Chi 01:00PM ET", 
-        "Value": 251.63398692810458, 
-        "AvgPointsPerGame": "30.600", 
-        "tchpergame": 32, 
-        "Position": "RB", 
-        "teamAbbrev": "CHI", 
-        "Oppscore": 59.81
-      }, 
-      "Oppscore": 270.26000000000005, 
-      "qb": {
-        "Salary": "7800", 
-        "Name": "Drew Brees", 
-        "GameInfo": "TB@NO 01:00PM ET", 
-        "Value": 380.4878048780488, 
-        "AvgPointsPerGame": "20.500", 
-        "tchpergame": 1, 
-        "Position": "QB", 
-        "teamAbbrev": "NO", 
-        "Oppscore": 45.580000000000005
-      }, 
-      "wr2": {
-        "Salary": "3300", 
-        "Name": "Cole Beasley", 
-        "GameInfo": "Dal@Phi 04:25PM ET", 
-        "Value": 417.72151898734177, 
-        "AvgPointsPerGame": "7.900", 
-        "tchpergame": 6, 
-        "Position": "WR", 
-        "teamAbbrev": "DAL", 
-        "Oppscore": 13.02
-      }, 
-      "wr3": {
-        "Salary": "7100", 
-        "Name": "Keenan Allen", 
-        "GameInfo": "SD@Cin 01:00PM ET", 
-        "Value": 205.2023121387283, 
-        "AvgPointsPerGame": "34.600", 
-        "tchpergame": 17, 
-        "Position": "WR", 
-        "teamAbbrev": "SD", 
-        "Oppscore": 33.260000000000005
-      }, 
-      "wr1": {
-        "Salary": "7000", 
-        "Name": "Brandin Cooks", 
-        "GameInfo": "TB@NO 01:00PM ET", 
-        "Value": 752.6881720430107, 
-        "AvgPointsPerGame": "9.300", 
-        "tchpergame": 9, 
-        "Position": "WR", 
-        "teamAbbrev": "NO", 
-        "Oppscore": 16.71
-      }, 
-      "te": {
-        "Salary": "3500", 
-        "Name": "Heath Miller", 
-        "GameInfo": "SF@Pit 01:00PM ET", 
-        "Value": 213.41463414634148, 
-        "AvgPointsPerGame": "16.400", 
-        "tchpergame": 11, 
-        "Position": "TE", 
-        "teamAbbrev": "PIT", 
-        "Oppscore": 28.439999999999998
-      }, 
-      "TeamSalary": 49000
-    }, 
-    "393277": {
-      "flex": {
-        "Salary": "7200", 
-        "Name": "Eddie Lacy", 
-        "GameInfo": "Sea@GB 08:30PM ET", 
-        "Value": 402.2346368715084, 
-        "AvgPointsPerGame": "17.900", 
-        "tchpergame": 22, 
-        "Position": "RB", 
-        "teamAbbrev": "GB", 
-        "Oppscore": 33.7
-      }, 
-      "Teamppg": 148.3, 
+      "Teamppg": 167.20000000000002, 
       "dst": {
         "Salary": "2800", 
-        "Name": "Cowboys ", 
+        "Name": "Chargers ", 
+        "GameInfo": "SD@Cin 01:00PM ET", 
+        "Value": 560.0, 
+        "AvgPointsPerGame": "5.000", 
+        "tchpergame": 0, 
+        "Position": "DST", 
+        "teamAbbrev": "SD"
+      }, 
+      "Value": 3327.0750950252095, 
+      "rb2": {
+        "Salary": "3000", 
+        "Name": "Bilal Powell", 
+        "GameInfo": "NYJ@Ind 08:30PM ET", 
+        "Value": 306.1224489795918, 
+        "AvgPointsPerGame": "9.800", 
+        "tchpergame": 16, 
+        "Position": "RB", 
+        "teamAbbrev": "NYJ", 
+        "Oppscore": 21.049999999999997
+      }, 
+      "rb1": {
+        "Salary": "7700", 
+        "Name": "Matt Forte", 
+        "GameInfo": "Ari@Chi 01:00PM ET", 
+        "Value": 251.63398692810458, 
+        "AvgPointsPerGame": "30.600", 
+        "tchpergame": 32, 
+        "Position": "RB", 
+        "teamAbbrev": "CHI", 
+        "Oppscore": 59.81
+      }, 
+      "Oppscore": 248.42000000000002, 
+      "qb": {
+        "Salary": "7800", 
+        "Name": "Drew Brees", 
+        "GameInfo": "TB@NO 01:00PM ET", 
+        "Value": 380.4878048780488, 
+        "AvgPointsPerGame": "20.500", 
+        "tchpergame": 1, 
+        "Position": "QB", 
+        "teamAbbrev": "NO", 
+        "Oppscore": 45.580000000000005
+      }, 
+      "wr2": {
+        "Salary": "3300", 
+        "Name": "Cole Beasley", 
         "GameInfo": "Dal@Phi 04:25PM ET", 
-        "Value": 1400.0, 
+        "Value": 417.72151898734177, 
+        "AvgPointsPerGame": "7.900", 
+        "tchpergame": 6, 
+        "Position": "WR", 
+        "teamAbbrev": "DAL", 
+        "Oppscore": 13.02
+      }, 
+      "wr3": {
+        "Salary": "7100", 
+        "Name": "Keenan Allen", 
+        "GameInfo": "SD@Cin 01:00PM ET", 
+        "Value": 205.2023121387283, 
+        "AvgPointsPerGame": "34.600", 
+        "tchpergame": 17, 
+        "Position": "WR", 
+        "teamAbbrev": "SD", 
+        "Oppscore": 33.260000000000005
+      }, 
+      "wr1": {
+        "Salary": "7000", 
+        "Name": "Brandin Cooks", 
+        "GameInfo": "TB@NO 01:00PM ET", 
+        "Value": 752.6881720430107, 
+        "AvgPointsPerGame": "9.300", 
+        "tchpergame": 9, 
+        "Position": "WR", 
+        "teamAbbrev": "NO", 
+        "Oppscore": 16.71
+      }, 
+      "te": {
+        "Salary": "4200", 
+        "Name": "Tyler Eifert", 
+        "GameInfo": "SD@Cin 01:00PM ET", 
+        "Value": 122.09302325581396, 
+        "AvgPointsPerGame": "34.400", 
+        "tchpergame": 12, 
+        "Position": "TE", 
+        "teamAbbrev": "CIN", 
+        "Oppscore": 25.540000000000003
+      }, 
+      "TeamSalary": 47900
+    }, 
+    "1415": {
+      "flex": {
+        "Salary": "8900", 
+        "Name": "Julio Jones", 
+        "GameInfo": "Atl@NYG 01:00PM ET", 
+        "Value": 233.59580052493436, 
+        "AvgPointsPerGame": "38.100", 
+        "tchpergame": 11, 
+        "Position": "WR", 
+        "teamAbbrev": "ATL", 
+        "Oppscore": 23.810000000000002
+      }, 
+      "Teamppg": 158.6, 
+      "dst": {
+        "Salary": "2900", 
+        "Name": "Texans ", 
+        "GameInfo": "Hou@Car 01:00PM ET", 
+        "Value": 1450.0, 
         "AvgPointsPerGame": "2.000", 
         "tchpergame": 0, 
         "Position": "DST", 
-        "teamAbbrev": "DAL"
+        "teamAbbrev": "HOU"
       }, 
-      "Value": 4307.552734530684, 
+      "Value": 4230.481943077368, 
       "rb2": {
+        "Salary": "5000", 
+        "Name": "Alfred Morris", 
+        "GameInfo": "StL@Was 01:00PM ET", 
+        "Value": 331.12582781456956, 
+        "AvgPointsPerGame": "15.100", 
+        "tchpergame": 25, 
+        "Position": "RB", 
+        "teamAbbrev": "WAS", 
+        "Oppscore": 33.45
+      }, 
+      "rb1": {
         "Salary": "7700", 
         "Name": "Matt Forte", 
         "GameInfo": "Ari@Chi 01:00PM ET", 
@@ -867,18 +462,7 @@
         "teamAbbrev": "CHI", 
         "Oppscore": 59.81
       }, 
-      "rb1": {
-        "Salary": "4700", 
-        "Name": "Chris Ivory", 
-        "GameInfo": "NYJ@Ind 08:30PM ET", 
-        "Value": 204.34782608695653, 
-        "AvgPointsPerGame": "23.000", 
-        "tchpergame": 21, 
-        "Position": "RB", 
-        "teamAbbrev": "NYJ", 
-        "Oppscore": 40.07000000000001
-      }, 
-      "Oppscore": 270.37, 
+      "Oppscore": 248.31000000000006, 
       "qb": {
         "Salary": "7800", 
         "Name": "Drew Brees", 
@@ -902,15 +486,15 @@
         "Oppscore": 13.02
       }, 
       "wr3": {
-        "Salary": "5900", 
-        "Name": "Jarvis Landry", 
+        "Salary": "3500", 
+        "Name": "Rashad Greene", 
         "GameInfo": "Mia@JAC 04:05PM ET", 
-        "Value": 285.024154589372, 
-        "AvgPointsPerGame": "20.700", 
+        "Value": 221.51898734177215, 
+        "AvgPointsPerGame": "15.800", 
         "tchpergame": 13, 
         "Position": "WR", 
-        "teamAbbrev": "MIA", 
-        "Oppscore": 33.040000000000006
+        "teamAbbrev": "JAC", 
+        "Oppscore": 31.130000000000003
       }, 
       "wr1": {
         "Salary": "7000", 
@@ -924,31 +508,135 @@
         "Oppscore": 16.71
       }, 
       "te": {
-        "Salary": "3500", 
-        "Name": "Heath Miller", 
-        "GameInfo": "SF@Pit 01:00PM ET", 
-        "Value": 213.41463414634148, 
-        "AvgPointsPerGame": "16.400", 
+        "Salary": "3700", 
+        "Name": "Jordan Reed", 
+        "GameInfo": "StL@Was 01:00PM ET", 
+        "Value": 191.7098445595855, 
+        "AvgPointsPerGame": "19.300", 
         "tchpergame": 11, 
         "Position": "TE", 
-        "teamAbbrev": "PIT", 
-        "Oppscore": 28.439999999999998
+        "teamAbbrev": "WAS", 
+        "Oppscore": 24.8
       }, 
-      "TeamSalary": 49900
+      "TeamSalary": 49800
     }, 
-    "181758": {
+    "8202": {
       "flex": {
-        "Salary": "4700", 
-        "Name": "Chris Ivory", 
-        "GameInfo": "NYJ@Ind 08:30PM ET", 
-        "Value": 204.34782608695653, 
-        "AvgPointsPerGame": "23.000", 
-        "tchpergame": 21, 
+        "Salary": "7400", 
+        "Name": "Jeremy Hill", 
+        "GameInfo": "SD@Cin 01:00PM ET", 
+        "Value": 404.37158469945354, 
+        "AvgPointsPerGame": "18.300", 
+        "tchpergame": 19, 
         "Position": "RB", 
-        "teamAbbrev": "NYJ", 
-        "Oppscore": 40.07000000000001
+        "teamAbbrev": "CIN", 
+        "Oppscore": 35.11
       }, 
-      "Teamppg": 178.50000000000003, 
+      "Teamppg": 139.1, 
+      "dst": {
+        "Salary": "2700", 
+        "Name": "49ers ", 
+        "GameInfo": "SF@Pit 01:00PM ET", 
+        "Value": 192.85714285714286, 
+        "AvgPointsPerGame": "14.000", 
+        "tchpergame": 0, 
+        "Position": "DST", 
+        "teamAbbrev": "SF"
+      }, 
+      "Value": 3431.7084305098847, 
+      "rb2": {
+        "Salary": "5000", 
+        "Name": "Rashad Jennings", 
+        "GameInfo": "Atl@NYG 01:00PM ET", 
+        "Value": 446.42857142857144, 
+        "AvgPointsPerGame": "11.200", 
+        "tchpergame": 14, 
+        "Position": "RB", 
+        "teamAbbrev": "NYG", 
+        "Oppscore": 29.3
+      }, 
+      "rb1": {
+        "Salary": "7700", 
+        "Name": "Matt Forte", 
+        "GameInfo": "Ari@Chi 01:00PM ET", 
+        "Value": 251.63398692810458, 
+        "AvgPointsPerGame": "30.600", 
+        "tchpergame": 32, 
+        "Position": "RB", 
+        "teamAbbrev": "CHI", 
+        "Oppscore": 59.81
+      }, 
+      "Oppscore": 245.23000000000008, 
+      "qb": {
+        "Salary": "7800", 
+        "Name": "Drew Brees", 
+        "GameInfo": "TB@NO 01:00PM ET", 
+        "Value": 380.4878048780488, 
+        "AvgPointsPerGame": "20.500", 
+        "tchpergame": 1, 
+        "Position": "QB", 
+        "teamAbbrev": "NO", 
+        "Oppscore": 45.580000000000005
+      }, 
+      "wr2": {
+        "Salary": "3300", 
+        "Name": "Cole Beasley", 
+        "GameInfo": "Dal@Phi 04:25PM ET", 
+        "Value": 417.72151898734177, 
+        "AvgPointsPerGame": "7.900", 
+        "tchpergame": 6, 
+        "Position": "WR", 
+        "teamAbbrev": "DAL", 
+        "Oppscore": 13.02
+      }, 
+      "wr3": {
+        "Salary": "4600", 
+        "Name": "Donte Moncrief", 
+        "GameInfo": "NYJ@Ind 08:30PM ET", 
+        "Value": 277.10843373493975, 
+        "AvgPointsPerGame": "16.600", 
+        "tchpergame": 11, 
+        "Position": "WR", 
+        "teamAbbrev": "IND", 
+        "Oppscore": 27.450000000000003
+      }, 
+      "wr1": {
+        "Salary": "7000", 
+        "Name": "Brandin Cooks", 
+        "GameInfo": "TB@NO 01:00PM ET", 
+        "Value": 752.6881720430107, 
+        "AvgPointsPerGame": "9.300", 
+        "tchpergame": 9, 
+        "Position": "WR", 
+        "teamAbbrev": "NO", 
+        "Oppscore": 16.71
+      }, 
+      "te": {
+        "Salary": "3300", 
+        "Name": "Dwayne Allen", 
+        "GameInfo": "NYJ@Ind 08:30PM ET", 
+        "Value": 308.41121495327104, 
+        "AvgPointsPerGame": "10.700", 
+        "tchpergame": 6, 
+        "Position": "TE", 
+        "teamAbbrev": "IND", 
+        "Oppscore": 18.25
+      }, 
+      "TeamSalary": 48800
+    }, 
+    "7821": {
+      "flex": {
+        "Salary": "4500", 
+        "Name": "Bishop Sankey", 
+        "GameInfo": "Ten@Cle 01:00PM ET", 
+        "Value": 199.1150442477876, 
+        "AvgPointsPerGame": "22.600", 
+        "tchpergame": 16, 
+        "Position": "RB", 
+        "teamAbbrev": "TEN", 
+        "Oppscore": 26.009999999999998
+      }, 
+      "Teamppg": 135.3, 
       "dst": {
         "Salary": "2800", 
         "Name": "Steelers ", 
@@ -959,7 +647,7 @@
         "Position": "DST", 
         "teamAbbrev": "PIT"
       }, 
-      "Value": 5370.382618844896, 
+      "Value": 6053.362952913327, 
       "rb2": {
         "Salary": "7700", 
         "Name": "Matt Forte", 
@@ -972,17 +660,17 @@
         "Oppscore": 59.81
       }, 
       "rb1": {
-        "Salary": "5100", 
-        "Name": "Carlos Hyde", 
+        "Salary": "5300", 
+        "Name": "DeAngelo Williams", 
         "GameInfo": "SF@Pit 01:00PM ET", 
-        "Value": 144.88636363636363, 
-        "AvgPointsPerGame": "35.200", 
-        "tchpergame": 28, 
+        "Value": 308.13953488372096, 
+        "AvgPointsPerGame": "17.200", 
+        "tchpergame": 22, 
         "Position": "RB", 
-        "teamAbbrev": "SF", 
-        "Oppscore": 33.1
+        "teamAbbrev": "PIT", 
+        "Oppscore": 33.370000000000005
       }, 
-      "Oppscore": 269.99, 
+      "Oppscore": 246.26000000000005, 
       "qb": {
         "Salary": "7800", 
         "Name": "Drew Brees", 
@@ -1006,15 +694,119 @@
         "Oppscore": 13.02
       }, 
       "wr3": {
-        "Salary": "7100", 
-        "Name": "Keenan Allen", 
-        "GameInfo": "SD@Cin 01:00PM ET", 
-        "Value": 205.2023121387283, 
-        "AvgPointsPerGame": "34.600", 
-        "tchpergame": 17, 
+        "Salary": "5500", 
+        "Name": "Vincent Jackson", 
+        "GameInfo": "TB@NO 01:00PM ET", 
+        "Value": 604.3956043956044, 
+        "AvgPointsPerGame": "9.100", 
+        "tchpergame": 11, 
         "Position": "WR", 
-        "teamAbbrev": "SD", 
-        "Oppscore": 33.260000000000005
+        "teamAbbrev": "TB", 
+        "Oppscore": 28.64
+      }, 
+      "wr1": {
+        "Salary": "7000", 
+        "Name": "Brandin Cooks", 
+        "GameInfo": "TB@NO 01:00PM ET", 
+        "Value": 752.6881720430107, 
+        "AvgPointsPerGame": "9.300", 
+        "tchpergame": 9, 
+        "Position": "WR", 
+        "teamAbbrev": "NO", 
+        "Oppscore": 16.71
+      }, 
+      "te": {
+        "Salary": "5800", 
+        "Name": "Jimmy Graham", 
+        "GameInfo": "Sea@GB 08:30PM ET", 
+        "Value": 339.1812865497076, 
+        "AvgPointsPerGame": "17.100", 
+        "tchpergame": 8, 
+        "Position": "TE", 
+        "teamAbbrev": "SEA", 
+        "Oppscore": 23.12
+      }, 
+      "TeamSalary": 49700
+    }, 
+    "6009": {
+      "flex": {
+        "Salary": "7200", 
+        "Name": "Marshawn Lynch", 
+        "GameInfo": "Sea@GB 08:30PM ET", 
+        "Value": 413.7931034482759, 
+        "AvgPointsPerGame": "17.400", 
+        "tchpergame": 25, 
+        "Position": "RB", 
+        "teamAbbrev": "SEA", 
+        "Oppscore": 35.370000000000005
+      }, 
+      "Teamppg": 143.1, 
+      "dst": {
+        "Salary": "3100", 
+        "Name": "Rams ", 
+        "GameInfo": "StL@Was 01:00PM ET", 
+        "Value": 221.42857142857142, 
+        "AvgPointsPerGame": "14.000", 
+        "tchpergame": 0, 
+        "Position": "DST", 
+        "teamAbbrev": "STL"
+      }, 
+      "Value": 3319.1153506300384, 
+      "rb2": {
+        "Salary": "5000", 
+        "Name": "Rashad Jennings", 
+        "GameInfo": "Atl@NYG 01:00PM ET", 
+        "Value": 446.42857142857144, 
+        "AvgPointsPerGame": "11.200", 
+        "tchpergame": 14, 
+        "Position": "RB", 
+        "teamAbbrev": "NYG", 
+        "Oppscore": 29.3
+      }, 
+      "rb1": {
+        "Salary": "7700", 
+        "Name": "Matt Forte", 
+        "GameInfo": "Ari@Chi 01:00PM ET", 
+        "Value": 251.63398692810458, 
+        "AvgPointsPerGame": "30.600", 
+        "tchpergame": 32, 
+        "Position": "RB", 
+        "teamAbbrev": "CHI", 
+        "Oppscore": 59.81
+      }, 
+      "Oppscore": 259.36, 
+      "qb": {
+        "Salary": "7800", 
+        "Name": "Drew Brees", 
+        "GameInfo": "TB@NO 01:00PM ET", 
+        "Value": 380.4878048780488, 
+        "AvgPointsPerGame": "20.500", 
+        "tchpergame": 1, 
+        "Position": "QB", 
+        "teamAbbrev": "NO", 
+        "Oppscore": 45.580000000000005
+      }, 
+      "wr2": {
+        "Salary": "3300", 
+        "Name": "Cole Beasley", 
+        "GameInfo": "Dal@Phi 04:25PM ET", 
+        "Value": 417.72151898734177, 
+        "AvgPointsPerGame": "7.900", 
+        "tchpergame": 6, 
+        "Position": "WR", 
+        "teamAbbrev": "DAL", 
+        "Oppscore": 13.02
+      }, 
+      "wr3": {
+        "Salary": "3500", 
+        "Name": "Rashad Greene", 
+        "GameInfo": "Mia@JAC 04:05PM ET", 
+        "Value": 221.51898734177215, 
+        "AvgPointsPerGame": "15.800", 
+        "tchpergame": 13, 
+        "Position": "WR", 
+        "teamAbbrev": "JAC", 
+        "Oppscore": 31.130000000000003
       }, 
       "wr1": {
         "Salary": "7000", 
@@ -1038,7 +830,215 @@
         "teamAbbrev": "PIT", 
         "Oppscore": 28.439999999999998
       }, 
-      "TeamSalary": 49000
+      "TeamSalary": 48100
+    }, 
+    "8442": {
+      "flex": {
+        "Salary": "7700", 
+        "Name": "Matt Forte", 
+        "GameInfo": "Ari@Chi 01:00PM ET", 
+        "Value": 251.63398692810458, 
+        "AvgPointsPerGame": "30.600", 
+        "tchpergame": 32, 
+        "Position": "RB", 
+        "teamAbbrev": "CHI", 
+        "Oppscore": 59.81
+      }, 
+      "Teamppg": 149.9, 
+      "dst": {
+        "Salary": "3100", 
+        "Name": "Rams ", 
+        "GameInfo": "StL@Was 01:00PM ET", 
+        "Value": 221.42857142857142, 
+        "AvgPointsPerGame": "14.000", 
+        "tchpergame": 0, 
+        "Position": "DST", 
+        "teamAbbrev": "STL"
+      }, 
+      "Value": 3400.9878670167186, 
+      "rb2": {
+        "Salary": "7200", 
+        "Name": "Eddie Lacy", 
+        "GameInfo": "Sea@GB 08:30PM ET", 
+        "Value": 402.2346368715084, 
+        "AvgPointsPerGame": "17.900", 
+        "tchpergame": 22, 
+        "Position": "RB", 
+        "teamAbbrev": "GB", 
+        "Oppscore": 33.7
+      }, 
+      "rb1": {
+        "Salary": "4000", 
+        "Name": "Danny Woodhead", 
+        "GameInfo": "SD@Cin 01:00PM ET", 
+        "Value": 180.18018018018017, 
+        "AvgPointsPerGame": "22.200", 
+        "tchpergame": 19, 
+        "Position": "RB", 
+        "teamAbbrev": "SD", 
+        "Oppscore": 34.95
+      }, 
+      "Oppscore": 245.43000000000004, 
+      "qb": {
+        "Salary": "7800", 
+        "Name": "Drew Brees", 
+        "GameInfo": "TB@NO 01:00PM ET", 
+        "Value": 380.4878048780488, 
+        "AvgPointsPerGame": "20.500", 
+        "tchpergame": 1, 
+        "Position": "QB", 
+        "teamAbbrev": "NO", 
+        "Oppscore": 45.580000000000005
+      }, 
+      "wr2": {
+        "Salary": "3300", 
+        "Name": "Cole Beasley", 
+        "GameInfo": "Dal@Phi 04:25PM ET", 
+        "Value": 417.72151898734177, 
+        "AvgPointsPerGame": "7.900", 
+        "tchpergame": 6, 
+        "Position": "WR", 
+        "teamAbbrev": "DAL", 
+        "Oppscore": 13.02
+      }, 
+      "wr3": {
+        "Salary": "5500", 
+        "Name": "Vincent Jackson", 
+        "GameInfo": "TB@NO 01:00PM ET", 
+        "Value": 604.3956043956044, 
+        "AvgPointsPerGame": "9.100", 
+        "tchpergame": 11, 
+        "Position": "WR", 
+        "teamAbbrev": "TB", 
+        "Oppscore": 28.64
+      }, 
+      "wr1": {
+        "Salary": "7000", 
+        "Name": "Brandin Cooks", 
+        "GameInfo": "TB@NO 01:00PM ET", 
+        "Value": 752.6881720430107, 
+        "AvgPointsPerGame": "9.300", 
+        "tchpergame": 9, 
+        "Position": "WR", 
+        "teamAbbrev": "NO", 
+        "Oppscore": 16.71
+      }, 
+      "te": {
+        "Salary": "3500", 
+        "Name": "Ladarius Green", 
+        "GameInfo": "SD@Cin 01:00PM ET", 
+        "Value": 190.21739130434784, 
+        "AvgPointsPerGame": "18.400", 
+        "tchpergame": 6, 
+        "Position": "TE", 
+        "teamAbbrev": "SD", 
+        "Oppscore": 13.02
+      }, 
+      "TeamSalary": 49100
+    }, 
+    "8219": {
+      "flex": {
+        "Salary": "4700", 
+        "Name": "Chris Ivory", 
+        "GameInfo": "NYJ@Ind 08:30PM ET", 
+        "Value": 204.34782608695653, 
+        "AvgPointsPerGame": "23.000", 
+        "tchpergame": 21, 
+        "Position": "RB", 
+        "teamAbbrev": "NYJ", 
+        "Oppscore": 40.07000000000001
+      }, 
+      "Teamppg": 169.9, 
+      "dst": {
+        "Salary": "2900", 
+        "Name": "Ravens ", 
+        "GameInfo": "Bal@Oak 04:05PM ET", 
+        "Value": 181.25, 
+        "AvgPointsPerGame": "16.000", 
+        "tchpergame": 0, 
+        "Position": "DST", 
+        "teamAbbrev": "BAL"
+      }, 
+      "Value": 2863.9783523202077, 
+      "rb2": {
+        "Salary": "4500", 
+        "Name": "Bishop Sankey", 
+        "GameInfo": "Ten@Cle 01:00PM ET", 
+        "Value": 199.1150442477876, 
+        "AvgPointsPerGame": "22.600", 
+        "tchpergame": 16, 
+        "Position": "RB", 
+        "teamAbbrev": "TEN", 
+        "Oppscore": 26.009999999999998
+      }, 
+      "rb1": {
+        "Salary": "7700", 
+        "Name": "Matt Forte", 
+        "GameInfo": "Ari@Chi 01:00PM ET", 
+        "Value": 251.63398692810458, 
+        "AvgPointsPerGame": "30.600", 
+        "tchpergame": 32, 
+        "Position": "RB", 
+        "teamAbbrev": "CHI", 
+        "Oppscore": 59.81
+      }, 
+      "Oppscore": 259.04, 
+      "qb": {
+        "Salary": "7800", 
+        "Name": "Drew Brees", 
+        "GameInfo": "TB@NO 01:00PM ET", 
+        "Value": 380.4878048780488, 
+        "AvgPointsPerGame": "20.500", 
+        "tchpergame": 1, 
+        "Position": "QB", 
+        "teamAbbrev": "NO", 
+        "Oppscore": 45.580000000000005
+      }, 
+      "wr2": {
+        "Salary": "3300", 
+        "Name": "Cole Beasley", 
+        "GameInfo": "Dal@Phi 04:25PM ET", 
+        "Value": 417.72151898734177, 
+        "AvgPointsPerGame": "7.900", 
+        "tchpergame": 6, 
+        "Position": "WR", 
+        "teamAbbrev": "DAL", 
+        "Oppscore": 13.02
+      }, 
+      "wr3": {
+        "Salary": "5900", 
+        "Name": "Jarvis Landry", 
+        "GameInfo": "Mia@JAC 04:05PM ET", 
+        "Value": 285.024154589372, 
+        "AvgPointsPerGame": "20.700", 
+        "tchpergame": 13, 
+        "Position": "WR", 
+        "teamAbbrev": "MIA", 
+        "Oppscore": 33.040000000000006
+      }, 
+      "wr1": {
+        "Salary": "7000", 
+        "Name": "Brandin Cooks", 
+        "GameInfo": "TB@NO 01:00PM ET", 
+        "Value": 752.6881720430107, 
+        "AvgPointsPerGame": "9.300", 
+        "tchpergame": 9, 
+        "Position": "WR", 
+        "teamAbbrev": "NO", 
+        "Oppscore": 16.71
+      }, 
+      "te": {
+        "Salary": "3700", 
+        "Name": "Jordan Reed", 
+        "GameInfo": "StL@Was 01:00PM ET", 
+        "Value": 191.7098445595855, 
+        "AvgPointsPerGame": "19.300", 
+        "tchpergame": 11, 
+        "Position": "TE", 
+        "teamAbbrev": "WAS", 
+        "Oppscore": 24.8
+      }, 
+      "TeamSalary": 47500
     }
   }
 }
