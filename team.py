@@ -1,15 +1,83 @@
 import csv, random, nfldb, json
 from stats import Stats 
+
+class Player(object):
+    def __init__(self, position):
+        self.position = position
+        self.players = {}
+        self.offensepositions = ['QB','RB','WR','TE']
+        self.qbs = []
+        self.rbs = []
+        self.wrs = []
+        self.flex = []
+        self.dst  = []
+    
+    def import_json(self):
+        jsonfile = open('dkplayers.json', "r")
+        self.players = json.load(jsonfile)
+
+    def update_ptsperopp(self):
+        for i in self.players:
+            if self.players[i]['Position'] != 'DST':
+                if self.players[i]['AvgPointsPerGame'] == 0 or self.players[i]['Oppscore'] == 0:
+                    self.players[i]['PtsPerOpp'] = 0
+                else:
+                    self.players[i]['PtsPerOpp'] = float("{0:.2f}".format(float(self.players[i]['AvgPointsPerGame'])/float(self.players[i]['Oppscore'])))
+    def startingqbs(self):
+        qbs = ['Tom Brady','Ben Roethlisberger','Tyrod Taylor','Ryan Tannehill','Ryan Fitzpatrick','Joe Flacco', 'Andy Dalton', 'Brian Hoyer', 'Andrew Luck', 'Blake Bortles', 'Marcus Mariota','Derek Carr', 'Philip Rivers', 'Tony Romo', 'Kirk Cousins', 'Sam Bradford', 'Eli Manning',  'Jay Cutler', 'Matthew Stafford', 'Jay Cutler', 'Aaron Rodgers', 'Teddy Bridgewater', 'Matt Ryan', 'Cam Newton', 'Drew Brees', 'Jameis Winston', 'Carson Palmer', 'Colin Kaepernick', 'Russell Wilson', 'Nick Foles' ]
+        return qbs
+
+    # Ranks a position by a statistic
+    def rank_players(self, pos, stat):
+        stats = []
+        playerlst = []
+        if pos !='DST':
+            for x in self.players:
+                if self.players[x]['Position'] == pos:
+                    playerlst.append(x)
+                    
+        for x in playerlst:
+            stats.append( (x,self.players[x][stat]) )
+            if stat == 'Overall':
+                sortedstats = sorted(stats,key=lambda tup: tup[1])
+            else:
+                sortedstats = sorted(stats,key=lambda tup: tup[1],reverse=True)
+        rank = 1
+        for x in sortedstats:
+            self.players[x[0]][stat+'rank'] = rank
+            rank = rank + 1
+
+    def update_ranks(self):
+        stats = ['Oppscore','PtsPerOpp']
+        for y in self.offensepositions:
+            for x in stats:
+                self.rank_players(y,x)
+    
+    def player_rating(self):
+        for y in self.players:
+            if self.players[y]['Position'] != 'DST':
+                print y
+                self.players[y]['Overall'] = float("{0:.2f}".format((self.players[y]['Oppscorerank'] * .95) + (self.players[y]['PtsPerOpprank'] * .05)))
+        positions = ['QB','RB','WR','TE']
+        for y in positions:
+            self.rank_players(y,'Overall')
+    
+#    def get_playerstats(self, player):
+
+
+        
+
+    
 class Team(object):
     def __init__(self):
-        self.qb = 'Drew Brees'
+        self.qb = 'Joe Flacco'
         self.rb1 = ''
         self.rb2 = ''
-        self.wr1 = 'Brandin Cooks'
-        self.wr2 = 'Cole Beasley'
+        self.wr1 = 'Antonio Brown'
+        self.wr2 = ''
         self.wr3 = ''
-        self.te = 'Heath Miller'
-        self.flex = ''
+        self.te = ''
+        self.flex = 'Rob Gronkowski'
         self.dst = ''
         self.team_maxsalary = 50000
         self.ppg = 0
@@ -22,6 +90,7 @@ class Team(object):
         self.teamtch20 = 0
         self.teamtch10 = 0
         self.teamopp = 0
+        self.teamoverallrank = 0
 
     def import_json(self):
         jsonfile = open('dkplayers.json', "r")
@@ -49,19 +118,10 @@ class Team(object):
             if self.players[i]['Position'] == 'QB':
                 self.players[i]['Oppscore'] = stat.qboppurtunity(i,2015)
                 print i, self.players[i]['Oppscore']
-    def target_pergame(self, player):
-            db = nfldb.connect()
-            q = nfldb.Query(db)
-            q.game(season_year=2015, season_type='Regular')
-            q.player(full_name= player)
-            total = 0
-            for game in q.as_aggregate():
-                total = total + (game.rushing_att + game.receiving_tar)
                 #print game.player, (game.rushing_att + game.receiving_tar)/16
             self.players[player]['tchpergame'] = int(total)
 
     def starting_qbs(self):
-#        qbs = ['Tom Brady','Ben Roethlisberger','Tyrod Taylor','Ryan Tannehill','Ryan Fitzpatrick','Joe Flacco', 'Andy Dalton', 'Brian Hoyer', 'Andrew Luck', 'Blake Bortles', 'Marcus Mariota','Peyton Manning', 'Alex Smith', 'Derek Carr', 'Philip Rivers', 'Tony Romo', 'Kirk Cousins', 'Sam Bradford', 'Eli Manning',  'Jay Cutler', 'Matthew Stafford', 'Jay Cutler', 'Aaron Rodgers', 'Teddy Bridgewater', 'Matt Ryan', 'Cam Newton', 'Drew Brees', 'Jameis Winston', 'Carson Palmer', 'Colin Kaepernick', 'Russell Wilson', 'Nick Foles' ]
         qbs = ['Ben Roethlisberger','Drew Brees','Eli Manning','Carson Palmer','Joe Flacco']
         return qbs
     def add_toteam(self,pos,player):
@@ -78,7 +138,7 @@ class Team(object):
     def pick_rbs(self):
         rbs = []
         for i in self.players:
-            if self.players[i]['Position'] == "RB" and self.players[i]['tchpergame'] > 13:
+            if self.players[i]['Position'] == "RB" and self.players[i]['Overallrank'] < 16:
                 rbs.append(i)
         if self.rb1 == '' and self.rb2 == '':
             picked = random.sample(rbs,2)
@@ -105,7 +165,7 @@ class Team(object):
     def pick_wrs(self):
         wrs = []
         for i in self.players:
-            if self.players[i]['Position'] == "WR" and self.players[i]['tchpergame'] > 3:
+            if self.players[i]['Position'] == "WR" and self.players[i]['Overallrank'] < 16:
                 wrs.append(i)
         if self.wr1 == '' and self.wr2 == '' and self.wr3 == '':
             picked = random.sample(wrs,3)
@@ -142,7 +202,7 @@ class Team(object):
     def pick_te(self):
         tes = []
         for i in self.players:
-            if self.players[i]['Position'] == "TE" and self.players[i]['tchpergame'] > 2:
+            if self.players[i]['Position'] == "TE" and self.players[i]['Overallrank'] < 20:
                 tes.append(i)
         if self.te == '':
             self.te = random.choice(tes)
@@ -157,7 +217,7 @@ class Team(object):
             flex = []
             pos = self.players
             for i in pos:
-                if (pos[i]['Position'] == "TE" or pos[i]['Position'] == "RB" or pos[i]['Position'] == "WR") and self.players[i]['tchpergame'] > 7:
+                if (pos[i]['Position'] == "TE" or pos[i]['Position'] == "RB" or pos[i]['Position'] == "WR") and self.players[i]['Overallrank'] < 10:
                     flex.append(i)
             rmlist = [self.rb1,self.rb2,self.wr1,self.wr2,self.wr3,self.te]
             for x in rmlist:
@@ -246,7 +306,14 @@ class Team(object):
                 opp = opp + self.team[x]['Oppscore']
         self.teamopp = opp
         self.team['Oppscore'] = self.teamopp
-
+    def team_overall(self):
+        opp = 0
+        pos = self.return_pos()
+        for x in pos:
+            if x != 'dst':
+                opp = opp + self.team[x]['Overallrank']
+        self.teamoverallrank = opp
+        self.team['Overallrank'] = float(self.teamoverallrank) / float('8.000')
 
 
     def main(self):
@@ -256,6 +323,7 @@ class Team(object):
         self.team_salary()
         self.team_avg_score()
         self.team_opp()
+        self.team_overall()
         
         
 
