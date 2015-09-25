@@ -70,15 +70,15 @@ class Player(object):
     
 class Team(object):
     def __init__(self):
-        self.qb = 'Joe Flacco'
-        self.rb1 = ''
+        self.qb = ''
+        self.rb1 = ""
         self.rb2 = ''
-        self.wr1 = 'Antonio Brown'
+        self.wr1 = ''
         self.wr2 = ''
         self.wr3 = ''
         self.te = ''
         self.flex = 'Rob Gronkowski'
-        self.dst = ''
+        self.dst = 'Seahawks '
         self.team_maxsalary = 50000
         self.ppg = 0
         self.players = {}
@@ -104,7 +104,6 @@ class Team(object):
     
     def add_value(self):
         for i in self.players:
-            self.target_pergame(i)
             self.players[i]['teamAbbrev'] = self.players[i]['teamAbbrev'].upper()
             stat = Stats()
             if float(self.players[i]['AvgPointsPerGame']) > 0:
@@ -114,15 +113,16 @@ class Team(object):
                 value = 0
                 self.players[i]['Value'] = value
             if self.players[i]['Position'] != 'QB' and self.players[i]['Position'] != 'DST':
-                self.players[i]['Oppscore'] = stat.flexoppurtunity_index(i,2015)
+                self.players[i]['Oppscore'] = stat.flexoppurtunity_index(i,2015) / 2
             if self.players[i]['Position'] == 'QB':
-                self.players[i]['Oppscore'] = stat.qboppurtunity(i,2015)
+                self.players[i]['Oppscore'] = stat.qboppurtunity(i,2015) / 2
                 print i, self.players[i]['Oppscore']
                 #print game.player, (game.rushing_att + game.receiving_tar)/16
-            self.players[player]['tchpergame'] = int(total)
+            #self.plyers[player]['tchpergame'] = int(total)
 
     def starting_qbs(self):
-        qbs = ['Ben Roethlisberger','Drew Brees','Eli Manning','Carson Palmer','Joe Flacco']
+        qbs = ['Tom Brady','Ben Roethlisberger','Tyrod Taylor','Ryan Tannehill','Ryan Fitzpatrick','Joe Flacco', 'Andy Dalton', 'Brian Hoyer', 'Andrew Luck', 'Blake Bortles', 'Marcus Mariota','Derek Carr', 'Philip Rivers', 'Tony Romo', 'Sam Bradford',  'Jay Cutler', 'Matthew Stafford', 'Jay Cutler', 'Aaron Rodgers', 'Teddy Bridgewater', 'Matt Ryan', 'Cam Newton', 'Drew Brees', 'Jameis Winston', 'Carson Palmer', 'Colin Kaepernick', 'Russell Wilson', 'Nick Foles' ]
+        #qbs = ['Ben Roethlisberger','Drew Brees','Eli Manning','Carson Palmer','Joe Flacco']
         return qbs
     def add_toteam(self,pos,player):
         self.team[pos] = self.players[player]
@@ -138,7 +138,7 @@ class Team(object):
     def pick_rbs(self):
         rbs = []
         for i in self.players:
-            if self.players[i]['Position'] == "RB" and self.players[i]['Overallrank'] < 16:
+            if self.players[i]['Position'] == "RB" and self.players[i]['Overallrank'] < 32:
                 rbs.append(i)
         if self.rb1 == '' and self.rb2 == '':
             picked = random.sample(rbs,2)
@@ -165,7 +165,7 @@ class Team(object):
     def pick_wrs(self):
         wrs = []
         for i in self.players:
-            if self.players[i]['Position'] == "WR" and self.players[i]['Overallrank'] < 16:
+            if self.players[i]['Position'] == "WR" and self.players[i]['Overallrank'] < 60:
                 wrs.append(i)
         if self.wr1 == '' and self.wr2 == '' and self.wr3 == '':
             picked = random.sample(wrs,3)
@@ -217,7 +217,7 @@ class Team(object):
             flex = []
             pos = self.players
             for i in pos:
-                if (pos[i]['Position'] == "TE" or pos[i]['Position'] == "RB" or pos[i]['Position'] == "WR") and self.players[i]['Overallrank'] < 10:
+                if (pos[i]['Position'] == "TE" or pos[i]['Position'] == "RB" or pos[i]['Position'] == "WR") and self.players[i]['Overallrank'] < 20:
                     flex.append(i)
             rmlist = [self.rb1,self.rb2,self.wr1,self.wr2,self.wr3,self.te]
             for x in rmlist:
@@ -314,6 +314,9 @@ class Team(object):
                 opp = opp + self.team[x]['Overallrank']
         self.teamoverallrank = opp
         self.team['Overallrank'] = float(self.teamoverallrank) / float('8.000')
+    def team_ppo(self):
+        ppo = self.teamavg / self.teamopp
+        self.team['PPO'] = ppo
 
 
     def main(self):
@@ -324,6 +327,7 @@ class Team(object):
         self.team_avg_score()
         self.team_opp()
         self.team_overall()
+        self.team_ppo()
         
         
 

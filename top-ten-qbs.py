@@ -115,4 +115,5 @@ def get_ptsagainst(year,week,team):
         total = total + x[3] 
     print total
        
-get_ptsagainst(2015,1,'WAS')
+get_ptsagainst(2015,2,'BAL')
+#print get_fantasypoints(2015,2,'Nick Foles')

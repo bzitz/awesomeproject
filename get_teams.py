@@ -4,7 +4,7 @@ from tabulate import tabulate
 def generate_teams(t):
     teams = {}
 
-    itter = 50000
+    itter = 1
     x = 0
     while x < itter:
         newteam = team.Team()
