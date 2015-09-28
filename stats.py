@@ -93,6 +93,33 @@ class Stats(object):
         gl3targets = stats['goaline3']['targets'] * 6.58
 
         return nrzcarries + rzcarries + gl1carries + gl2carries + gl3carries + nrztargets + rztargets + gl1targets + gl2targets + gl3targets
+    def games_played(self,player,year):
+        db = nfldb.connect()
+        q = nfldb.Query(db)
+        q.game(season_year=year, season_type='Regular',)
+        q.player(full_name=player)
+        if q.as_games() != None:
+            return len(q.as_games())
+        else:
+            return 0
+    
+    def top_oppscore(self,players,pos,numresults):
+        playerlst = []
+        stats = []
+        if pos !='DST':
+            for x in players:
+                if players[x]['Position'] == pos:
+                    playerlst.append(x)
+            for x in playerlst:
+                stats.append((x,players[x]['Oppscore']))
+                if len(stats) > numresults:
+                    stats = sorted(stats, key=lambda x: x[1],reverse=True)
+                    stats.pop()
+        return stats
+
+        
+
+
         
 
 

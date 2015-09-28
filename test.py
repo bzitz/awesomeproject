@@ -9,10 +9,10 @@ def get_teams():
 
 x = 1
 teamselected = []
-while x < 3000000:
+while x < 100000:
     print x
     z = get_teams()
-    if z['TeamSalary'] <= 50000 and z['Teamppg'] > 185 and z['Oppscore'] > 170:
+    if z['TeamSalary'] <= 50000 and z['Teamppg'] > 175 and z['Oppscore'] > 150:
         print 'great'
         print z['TeamSalary']
         teamselected.append(z)

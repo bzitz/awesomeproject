@@ -1,4 +1,4 @@
-import csv, random, nfldb, json
+import csv, random, nfldb, json, stats
 from stats import Stats 
 
 class Player(object):
@@ -61,6 +61,9 @@ class Player(object):
         positions = ['QB','RB','WR','TE']
         for y in positions:
             self.rank_players(y,'Overall')
+    def top_qbs(self):
+        s = stats.Stats()
+        print s.top_oppscore(self.players,'TE',20)
     
 #    def get_playerstats(self, player):
 
@@ -77,8 +80,8 @@ class Team(object):
         self.wr2 = ''
         self.wr3 = ''
         self.te = ''
-        self.flex = 'Rob Gronkowski'
-        self.dst = 'Seahawks '
+        self.flex = ''
+        self.dst = ''
         self.team_maxsalary = 50000
         self.ppg = 0
         self.players = {}
@@ -113,9 +116,15 @@ class Team(object):
                 value = 0
                 self.players[i]['Value'] = value
             if self.players[i]['Position'] != 'QB' and self.players[i]['Position'] != 'DST':
-                self.players[i]['Oppscore'] = stat.flexoppurtunity_index(i,2015) / 2
+                if stat.flexoppurtunity_index(i,2015) == 0:
+                    self.players[i]['Oppscore'] = 0
+                else:
+                    self.players[i]['Oppscore'] = stat.flexoppurtunity_index(i,2015) / stat.games_played(i,2015)
             if self.players[i]['Position'] == 'QB':
-                self.players[i]['Oppscore'] = stat.qboppurtunity(i,2015) / 2
+                if stat.qboppurtunity(i,2015) == 0:
+                    self.players[i]["Oppscore"] = 0
+                else:
+                    self.players[i]['Oppscore'] = stat.qboppurtunity(i,2015) / stat.games_played(i,2015)
                 print i, self.players[i]['Oppscore']
                 #print game.player, (game.rushing_att + game.receiving_tar)/16
             #self.plyers[player]['tchpergame'] = int(total)
