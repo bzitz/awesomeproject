@@ -116,6 +116,20 @@ class Stats(object):
                     stats = sorted(stats, key=lambda x: x[1],reverse=True)
                     stats.pop()
         return stats
+    def top_value(self,players,pos,numresults):
+        playerlst = []
+        stats = []
+        if pos !='DST':
+            for x in players:
+                if players[x]['Position'] == pos:
+                    playerlst.append(x)
+            for x in playerlst:
+                if float(players[x]['AvgPointsPerGame']) > 15:
+                    stats.append((x,players[x]['Value']))
+                if len(stats) > numresults:
+                    stats = sorted(stats, key=lambda x: x[1])
+                    stats.pop()
+        return sorted(stats, key=lambda x: x[1])
 
         
 

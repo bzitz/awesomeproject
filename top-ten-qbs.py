@@ -1,4 +1,4 @@
-import nfldb, team
+import nfldb, team, stats
 from tabulate import tabulate
 
 def get_weights(fieldposition):
@@ -132,7 +132,6 @@ def get_weeklypoints(year, player, week):
     return pts
  
 
-#get_fantasypoints(2015, 2, "Travis Benjamin")
 def get_ptsagainst(team, year):
     db = nfldb.connect()
     q = nfldb.Query(db)
@@ -161,9 +160,6 @@ def get_weeklypts(team, week, year):
                 players.append((p.full_name,str(p.position),str(p.team), week, pts)) 
                 
     return players
-       
-#print get_ptsagainst("NE",2015)
-#print get_fantasypoints(2015, "Antonio Brown")
 
 def display_ptsagainst(team, year):
     data = get_ptsagainst(team,year)
@@ -217,15 +213,15 @@ def display_playerpts(year, player):
         weeks.append([x[1],x[2],x[3]])
     print tabulate(weeks,headers = ["Week","Opponent","Points"])
 
-display_ptsagainst("KC", 2015)
-#display_playerpts(2015, "James Jones")
+def display_playervalue(pos, numresults):
+    val = []
+    st = stats.Stats()
+    p = team.Player('pos')
+    p.import_json()
+    data = st.top_value(p.players,pos,numresults)
+    for x in data:
+        val.append([x[0],x[1]])
+    print tabulate(val, headers = ["Player", "Value"])
 
-#db = nfldb.connect()
-#q = nfldb.Query(db)
-#q.game(season_year=2015, season_type='Regular',)
-#q.player(full_name="Antonio Brown")
-#print len(q.as_games())
 
-#t = team.Player('pos')
-#t.import_json()
-#t.top_qbs()
+display_playervalue('TE', 20)

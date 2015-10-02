@@ -2128,7 +2128,7 @@
     "Overall": 6.15, 
     "Value": 0, 
     "Overallrank": 4, 
-    "AvgPointsPerGame": "0", 
+    "AvgPointsPerGame": "24", 
     "Position": "RB", 
     "teamAbbrev": "PIT", 
     "Oppscore": 51.8
@@ -2216,20 +2216,6 @@
     "Position": "RB", 
     "teamAbbrev": "NYJ", 
     "Oppscore": 5.68
-  }, 
-  "DeAngelo Williams": {
-    "Salary": "4600", 
-    "Oppscorerank": 9, 
-    "PtsPerOpp": 0.85, 
-    "GameInfo": "Bal@Pit 08:25PM ET", 
-    "PtsPerOpprank": 10, 
-    "Overall": 9.05, 
-    "Value": 190.0826446280992, 
-    "Overallrank": 7, 
-    "AvgPointsPerGame": "24.200", 
-    "Position": "RB", 
-    "teamAbbrev": "PIT", 
-    "Oppscore": 28.583333333333332
   }, 
   "Raiders ": {
     "Salary": "2600", 
@@ -6692,20 +6678,6 @@
     "Position": "RB", 
     "teamAbbrev": "BUF", 
     "Oppscore": 0
-  }, 
-  "Ben Roethlisberger": {
-    "Salary": "7300", 
-    "Oppscorerank": 12, 
-    "PtsPerOpp": 0.82, 
-    "GameInfo": "Bal@Pit 08:25PM ET", 
-    "PtsPerOpprank": 5, 
-    "Overall": 11.65, 
-    "Value": 262.1184919210054, 
-    "Overallrank": 11, 
-    "AvgPointsPerGame": "27.850", 
-    "Position": "QB", 
-    "teamAbbrev": "PIT", 
-    "Oppscore": 33.913333333333334
   }, 
   "Khiry Robinson": {
     "Salary": "3000", 

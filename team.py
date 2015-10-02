@@ -7,10 +7,59 @@ class Player(object):
         self.players = {}
         self.offensepositions = ['QB','RB','WR','TE']
         self.qbs = []
-        self.rbs = []
-        self.wrs = []
-        self.flex = []
+        self.rb1s = []
+        self.rb2s = []
+        self.wr1s = []
+        self.wr2s = []
+        self.wr3s = []
+        self.flexlist = []
+        self.tes = []
         self.dst  = []
+
+    def pick_flex(self,wr1,wr2,wr3,te):
+        flex = []
+        flex5 = []
+        self.import_json()
+        pos = self.players
+        for i in pos:
+            if (pos[i]['Position'] == "TE" or pos[i]['Position'] == "WR") and self.players[i]['Overallrank'] < 40:
+                flex.append(i)
+
+        rmlist = [wr1,wr2,wr3,te]
+        for x in rmlist:
+            if x in flex:
+                flex.remove(x)
+        for y in flex[:5]:
+            self.flexlist.append(y)
+            flex5.append(y)
+        return flex5
+
+    def get_pos(self):
+        self.import_json()
+        s = stats.Stats()
+        for pos in self.offensepositions:
+            if pos == 'QB':
+                for x in self.top_players('QB',1):
+                    self.qbs.append(x[0])
+            if pos == 'RB':
+                print "POS: ", pos
+                rbs = self.top_players('RB', 10)
+                for x in rbs[:5]:
+                    self.rb1s.append( x[0] )
+                for x in rbs[-5:]:
+                    self.rb2s.append( x[0] )
+            if pos == 'WR':
+                wrs = self.top_players('WR', 15)
+                for x in wrs[:5]:
+                    self.wr1s.append( x[0] )
+                for y in wrs[5:10]:
+                    self.wr2s.append( y[0] )
+                for z in wrs[-5:]:
+                    self.wr3s.append( z[0] )
+            if pos == 'TE':
+                for x in self.top_players('TE', 10):
+                    self.tes.append(x[0])
+    
     
     def import_json(self):
         jsonfile = open('dkplayers.json', "r")
@@ -61,9 +110,10 @@ class Player(object):
         positions = ['QB','RB','WR','TE']
         for y in positions:
             self.rank_players(y,'Overall')
-    def top_qbs(self):
+    
+    def top_players(self,pos,num):
         s = stats.Stats()
-        print s.top_oppscore(self.players,'TE',20)
+        return s.top_oppscore(self.players,pos,num)
     
 #    def get_playerstats(self, player):
 
@@ -72,19 +122,19 @@ class Player(object):
 
     
 class Team(object):
-    def __init__(self):
-        self.qb = ''
-        self.rb1 = ""
-        self.rb2 = ''
-        self.wr1 = ''
-        self.wr2 = ''
-        self.wr3 = ''
-        self.te = ''
-        self.flex = ''
-        self.dst = ''
+    def __init__(self,qb,rb1,rb2,wr1,wr2,wr3,te,flex):
+        self.qb = qb
+        self.rb1 = rb1
+        self.rb2 = rb2
+        self.wr1 = wr1
+        self.wr2 = wr2
+        self.wr3 = wr3
+        self.te = te
+        self.flex = flex
+        self.dst = 'Bengals '
         self.team_maxsalary = 50000
         self.ppg = 0
-        self.players = {}
+        self.players = {} 
         self.team = {}
         self.teamavg = 0
         self.teamsalary = 0
@@ -94,6 +144,8 @@ class Team(object):
         self.teamtch10 = 0
         self.teamopp = 0
         self.teamoverallrank = 0
+        self.selected = []
+        self.flexlist = []
 
     def import_json(self):
         jsonfile = open('dkplayers.json', "r")
@@ -126,7 +178,7 @@ class Team(object):
                 else:
                     self.players[i]['Oppscore'] = stat.qboppurtunity(i,2015) / stat.games_played(i,2015)
                 print i, self.players[i]['Oppscore']
-                #print game.player, (game.rushing_att + game.receiving_tar)/16
+                #print game.player, (gamje.rushing_att + game.receiving_tar)/16
             #self.plyers[player]['tchpergame'] = int(total)
 
     def starting_qbs(self):
@@ -136,6 +188,8 @@ class Team(object):
     def add_toteam(self,pos,player):
         self.team[pos] = self.players[player]
         self.team[pos]['Name'] = player
+
+
     def pick_qb(self):
         if self.qb == '':
             qbs = self.starting_qbs()
@@ -220,20 +274,8 @@ class Team(object):
             self.add_toteam('te', self.te)
 
     def pick_flex(self):
-        if self.flex != '':
-            self.add_toteam('flex',self.flex)
-        else:
-            flex = []
-            pos = self.players
-            for i in pos:
-                if (pos[i]['Position'] == "TE" or pos[i]['Position'] == "RB" or pos[i]['Position'] == "WR") and self.players[i]['Overallrank'] < 20:
-                    flex.append(i)
-            rmlist = [self.rb1,self.rb2,self.wr1,self.wr2,self.wr3,self.te]
-            for x in rmlist:
-                if x in flex:
-                    flex.remove(x)
-            self.flex = random.choice(flex)
-            self.add_toteam('flex',self.flex)
+        self.add_toteam('flex',self.flex) 
+   
     
     def pick_dst(self):
         if self.dst != '':
@@ -253,7 +295,6 @@ class Team(object):
         self.pick_te()
         self.pick_flex()
         self.pick_dst()
-        
 
     def get_value(self, player):
         value = self.players[player]['AvgPointsPerGame']
@@ -337,6 +378,14 @@ class Team(object):
         self.team_opp()
         self.team_overall()
         self.team_ppo()
+    def get_teamstat(self):
+        self.team_value()
+        self.team_salary()
+        self.team_avg_score()
+        self.team_opp()
+        self.team_overall()
+        self.team_ppo()
+
         
         
 

@@ -2,35 +2,40 @@ import team, decimal, nfldb, os, json, heapq, time
 from operator import itemgetter
 from tabulate import tabulate
 
-def get_teams():
-    newteam = team.Team()
-    newteam.main()
-    return newteam.team
 
-x = 1
-teamselected = []
-while x < 100000:
-    print x
-    z = get_teams()
-    if z['TeamSalary'] <= 50000 and z['Teamppg'] > 175 and z['Oppscore'] > 150:
-        print 'great'
-        print z['TeamSalary']
-        teamselected.append(z)
-    else:
-        print 'no'
-    x = x +1
-    if len(teamselected) > 20:
-        teamselected = sorted(teamselected, key=itemgetter('PPO'), reverse=True)
-        teamselected.pop() 
-print teamselected[0]['TeamSalary']   
-print len(teamselected)
+def pick_team():
+    t = team.Player('pos')
+    t.get_pos()
+    count = 0
+    total = 0
+    best_teams = []
+    while count < 100:
+        for qb in t.qbs:
+            for rb1 in t.rb1s:
+                for rb2 in t.rb2s:
+                    for wr1 in t.wr1s:
+                        for wr2 in t.wr2s:
+                            for wr3 in t.wr3s:
+                                for te in t.tes:
+                                    for flex in t.pick_flex(wr1,wr2,wr3,te):
+                                            newteam = team.Team(qb,rb1,rb2,wr1,wr2,wr3,te,flex)
+                                            newteam.main()
+                                            #print newteam.team['TeamSalary']
+                                            total = total + 1
+                                            if newteam.team['TeamSalary'] <= 50000 and newteam.team['Oppscore'] > 220:
+                                                if newteam.team not in best_teams:
+                                                    best_teams.append(newteam.team)
+                                                    count = count + 1
+                                            print count, total
+    return best_teams
+                                   
 
-for y in teamselected:
+for y in pick_team():
     
     print '\n'
     print "Team Salary: ", y['TeamSalary'], " Team AVG Rank: ", y['Overallrank'], "  Team PPG: ", y['Teamppg'], " Team PPO: ", y['Teamppg'] / y['Oppscore'], " Opty score: ", y['Oppscore']
-    newteam = team.Team()
-    positions = newteam.return_pos()
+    positions = ['qb','rb1','rb2','wr1','wr2','wr3','te','flex','dst']
+
     table =[]
     for pos in positions:
         if pos != 'dst':
