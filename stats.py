@@ -124,7 +124,7 @@ class Stats(object):
                 if players[x]['Position'] == pos:
                     playerlst.append(x)
             for x in playerlst:
-                if float(players[x]['AvgPointsPerGame']) > 15:
+                if float(players[x]['AvgPointsPerGame']) > 10 and players[x]['Oppscore'] > 15:
                     stats.append((x,players[x]['Value']))
                 if len(stats) > numresults:
                     stats = sorted(stats, key=lambda x: x[1])

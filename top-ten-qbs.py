@@ -220,8 +220,13 @@ def display_playervalue(pos, numresults):
     p.import_json()
     data = st.top_value(p.players,pos,numresults)
     for x in data:
-        val.append([x[0],x[1]])
-    print tabulate(val, headers = ["Player", "Value"])
+        val.append([x[0],x[1],p.players[x[0]]['Oppscore'],p.players[x[0]]['Oppscorerank']])
+    print tabulate(val, headers = ["Player", "Value", "Oppurtunity", "Opp Rank"])
 
 
-display_playervalue('TE', 20)
+display_playervalue('QB', 30)
+display_playervalue('RB', 30)
+display_playervalue('WR', 30)
+display_playervalue('TE', 30)
+
+

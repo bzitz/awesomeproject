@@ -59,7 +59,8 @@ class Player(object):
             if pos == 'TE':
                 for x in self.top_players('TE', 10):
                     self.tes.append(x[0])
-    
+
+
     
     def import_json(self):
         jsonfile = open('dkplayers.json', "r")
@@ -115,23 +116,18 @@ class Player(object):
         s = stats.Stats()
         return s.top_oppscore(self.players,pos,num)
     
-#    def get_playerstats(self, player):
-
-
-        
-
     
 class Team(object):
-    def __init__(self,qb,rb1,rb2,wr1,wr2,wr3,te,flex):
+    def __init__(self,qb,rb1,rb2,wr1,wr2,wr3,te,flex,dst):
         self.qb = qb
-        self.rb1 = rb1
+        self.rb1 = rb1 
         self.rb2 = rb2
-        self.wr1 = wr1
-        self.wr2 = wr2
-        self.wr3 = wr3
+        self.wr1 = wr1 
+        self.wr2 = wr2 
+        self.wr3 = wr3 
         self.te = te
         self.flex = flex
-        self.dst = 'Bengals '
+        self.dst = dst
         self.team_maxsalary = 50000
         self.ppg = 0
         self.players = {} 
@@ -147,6 +143,12 @@ class Team(object):
         self.selected = []
         self.flexlist = []
 
+    def remove_zeros(self):
+        nonzeros = {}
+        for x in self.players:
+            if self.players[x]['Value'] > 0:
+                nonzeros[x] = self.players[x]
+        self.players = nonzeros
     def import_json(self):
         jsonfile = open('dkplayers.json', "r")
         self.players = json.load(jsonfile)
@@ -178,100 +180,30 @@ class Team(object):
                 else:
                     self.players[i]['Oppscore'] = stat.qboppurtunity(i,2015) / stat.games_played(i,2015)
                 print i, self.players[i]['Oppscore']
-                #print game.player, (gamje.rushing_att + game.receiving_tar)/16
-            #self.plyers[player]['tchpergame'] = int(total)
 
     def starting_qbs(self):
         qbs = ['Tom Brady','Ben Roethlisberger','Tyrod Taylor','Ryan Tannehill','Ryan Fitzpatrick','Joe Flacco', 'Andy Dalton', 'Brian Hoyer', 'Andrew Luck', 'Blake Bortles', 'Marcus Mariota','Derek Carr', 'Philip Rivers', 'Tony Romo', 'Sam Bradford',  'Jay Cutler', 'Matthew Stafford', 'Jay Cutler', 'Aaron Rodgers', 'Teddy Bridgewater', 'Matt Ryan', 'Cam Newton', 'Drew Brees', 'Jameis Winston', 'Carson Palmer', 'Colin Kaepernick', 'Russell Wilson', 'Nick Foles' ]
         #qbs = ['Ben Roethlisberger','Drew Brees','Eli Manning','Carson Palmer','Joe Flacco']
         return qbs
+
     def add_toteam(self,pos,player):
         self.team[pos] = self.players[player]
         self.team[pos]['Name'] = player
 
-
     def pick_qb(self):
-        if self.qb == '':
-            qbs = self.starting_qbs()
-            self.qb = random.choice(qbs)
-            self.add_toteam('qb', self.qb)
-        else:
-            self.add_toteam('qb', self.qb)
+        self.add_toteam('qb', self.qb)
 
     def pick_rbs(self):
-        rbs = []
-        for i in self.players:
-            if self.players[i]['Position'] == "RB" and self.players[i]['Overallrank'] < 32:
-                rbs.append(i)
-        if self.rb1 == '' and self.rb2 == '':
-            picked = random.sample(rbs,2)
-            self.rb1 = picked[0]
-            self.rb2 = picked[1]
-            self.add_toteam('rb1', self.rb1)
-            self.add_toteam('rb2', self.rb2)
-        elif self.rb1 != '' and self.rb2 == '':
-            rbs.remove(self.rb1)
-            picked = random.choice(rbs)
-            self.rb2 = picked
-            self.add_toteam('rb1', self.rb1)
-            self.add_toteam('rb2', self.rb2)
-        elif self.rb1 == '' and self.rb2 != '':
-            rbs.remove(self.rb2)
-            picked = random.choice(rbs)
-            self.rb1 = picked
-            self.add_toteam('rb1', self.rb1)
-            self.add_toteam('rb2', self.rb2)
-        else:
-            self.add_toteam('rb1', self.rb1)
-            self.add_toteam('rb2', self.rb2)
+        self.add_toteam('rb1', self.rb1)
+        self.add_toteam('rb2', self.rb2)
 
     def pick_wrs(self):
-        wrs = []
-        for i in self.players:
-            if self.players[i]['Position'] == "WR" and self.players[i]['Overallrank'] < 60:
-                wrs.append(i)
-        if self.wr1 == '' and self.wr2 == '' and self.wr3 == '':
-            picked = random.sample(wrs,3)
-            self.wr1 = picked[0]
-            self.wr2 = picked[1]
-            self.wr3 = picked[2]
-            self.add_toteam('wr1', self.wr1)
-            self.add_toteam('wr2', self.wr2)
-            self.add_toteam('wr3', self.wr3)
-        elif self.wr1 != '' and self.wr2 == '' and self.wr3 == '':
-            if self.wr1 in wrs:
-                wrs.remove(self.wr1)
-            picked = random.sample(wrs,2)
-            self.wr2 = picked[0]
-            self.wr3 = picked[1]
-            self.add_toteam('wr1', self.wr1)
-            self.add_toteam('wr2', self.wr2)
-            self.add_toteam('wr3', self.wr3)
-        elif self.wr1 != '' and self.wr2 != '' and self.wr3 == '':
-            if self.wr1 in wrs:
-                wrs.remove(self.wr1)
-            if self.wr2 in wrs:
-                wrs.remove(self.wr2)
-            picked = random.choice(wrs)
-            self.wr3 = picked
-            self.add_toteam('wr1', self.wr1)
-            self.add_toteam('wr2', self.wr2)
-            self.add_toteam('wr3', self.wr3)
-        elif self.wr1 != '' and self.wr2 != '' and self.wr3 != '':
-            self.add_toteam('wr1', self.wr1)
-            self.add_toteam('wr2', self.wr2)
-            self.add_toteam('wr3', self.wr3)
+        self.add_toteam('wr1', self.wr1)
+        self.add_toteam('wr2', self.wr2)
+        self.add_toteam('wr3', self.wr3)
 
     def pick_te(self):
-        tes = []
-        for i in self.players:
-            if self.players[i]['Position'] == "TE" and self.players[i]['Overallrank'] < 20:
-                tes.append(i)
-        if self.te == '':
-            self.te = random.choice(tes)
-            self.add_toteam('te', self.te)
-        else:
-            self.add_toteam('te', self.te)
+        self.add_toteam('te', self.te)
 
     def pick_flex(self):
         self.add_toteam('flex',self.flex) 
@@ -385,25 +317,4 @@ class Team(object):
         self.team_opp()
         self.team_overall()
         self.team_ppo()
-
-        
-        
-
-#new = Team()
-#
-#new.import_data()
-#new.add_value()
-#new.pick_team()
-#print new.qb, new.players[new.qb]['Value']
-#print new.rb1
-#print new.rb2
-#print new.wr1
-#print new.wr2
-#print new.wr3
-#print new.te
-#print new.flex
-#print new.team
-#print new.team_value()
-#print new.team_salary()
-#print new.team_avg_score()
 
