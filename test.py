@@ -3,41 +3,48 @@ from operator import itemgetter
 from tabulate import tabulate
 
 qb = [
-    'Derek Carr',
-    'Aaron Rodgers', 
+    'Philip Rivers',
+    'Carson Palmer', 
     'Blake Bortles', 
-    'Andy Dalton', 
+    'Tom Brady', 
     'Matt Ryan',
-    'Colin Kaepernick'
+    'Marcus Mariota'
     ]
-rb = [
-    'Adrian Peterson', 
+rb1 = [
+    "Le'Veon Bell", 
     'Jamaal Charles',
-    'Latavius Murray', 
-    'Mark Ingram',
-    'Joseph Randle', 
-    'Devonta Freeman', 
-    'Carlos Hyde',
-    'Alfred Blue', 
-    'Karlos Williams']
-wr = [
+    'Matt Forte',
+    'Latavius Murray',
+    'Devonta Freeman']
+rb2 = [
+    'Justin Forsett', 
+    'Dion Lewis', 
+    'LeGarrette Blount',
+    'Karlos Williams',
+    ]
+wr1 = [
     'Julio Jones', 
     'Odell Beckham', 
-    'Demaryius Thomas', 
-    'A.J. Green', 
-    'Calvin Johnson',
-    'Randall Cobb', 
-    'DeAndre Hopkins', 
-    'Keenan Allen', 
     'Larry Fitzgerald', 
+    'Keenan Allen',
+    'Julian Edelman'
+    ]
+wr2 = [
+    'Jeremy Maclin', 
+    'Allen Hurns', 
+    'Leonard Hankerson'] 
+wr3 = [
+    'Pierre Garcon', 
     'Amari Cooper', 
     'Michael Crabtree', 
-    'Allen Robinson', 
-    'James Jones', 
+    'Terrance Williams', 
+    'Doug Baldwin'
     ]
-te = ['Jason Witten', 'Jordan Reed', 'Tyler Eifert', 'Greg Olsen', 'Jimmy Graham', 'Martellus Bennett']
-dsts = ['Bengals ', 'Cardinals ', 'Raiders ', 'Packers ', 'Browns ', 'Eagles ', 'Seahawks ']
-flex = wr + te
+te = ['Rob Gronkowski', 'Jordan Reed', 'Travis Kelce','Ladarius Green', 'Martellus Bennett']
+dsts = ['Bengals ', 'Cardinals ', 'Chiefs ', 'Giants ', 'Bears ', 'Jaguars ']
+flex = wr1 + wr2 + wr3 + te
+rbs = [rb1,rb2]
+wrs = [wr1,wr2,wr3]
 
 rbcombo = []
 rbcnt = 0
@@ -64,10 +71,10 @@ def get_dst(defense):
     return std
     
 
-for combo in itertools.combinations(rb,2):
+for combo in itertools.product(*rbs):
     rbcombo.append(combo)
     rbcnt = rbcnt + 1
-for combo in itertools.combinations(wr,3):
+for combo in itertools.product(*wrs):
     wrcombo.append(combo)
     wrcnt = wrcnt + 1
 
@@ -107,6 +114,7 @@ for x in itertools.product(*allpos):
                 count = count + 1
                 print count
                 print qb
+
 cntr = 0
 if True == False:
     for y in lineup:
@@ -133,6 +141,7 @@ if True == False:
 
 json_file = open('/home/scrabbleadmin/nflproj/teamlogs/topteams.json', 'w')
 json_file.write(json.dumps(lineup,indent=2))
-print count
+print rbcnt
 print len(rbcombo)
 print wrcnt
+print len(wrcombo)

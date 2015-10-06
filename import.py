@@ -1,6 +1,6 @@
 import team, json
 
-new_team = team.Team()
+new_team = team.Team('qb','rb1','rb2','wr1','wr2','wr3','te','flex', 'dst')
 new_team.import_data()
 new_team.add_value()
 new_team.remove_zeros()
