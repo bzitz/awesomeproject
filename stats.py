@@ -65,11 +65,11 @@ class Stats(object):
             comp = self.completions(player,x,season)
             stats[x] = {}
             stats[x]['completions'] = comp
-        nrzcomp = stats['non-redzone']['completions'] * 1.07
-        rzcomp = stats['redzone']['completions'] * 2.63
-        gl1comp = stats['goaline1']['completions'] * 4.69
-        gl2comp = stats['goaline2']['completions'] * 7.09
-        gl3comp = stats['goaline3']['completions'] * 8.00
+        nrzcomp = stats['non-redzone']['completions'] * .73
+        rzcomp = stats['redzone']['completions'] * 1.60
+        gl1comp = stats['goaline1']['completions'] * 2.614
+        gl2comp = stats['goaline2']['completions'] * 3.82
+        gl3comp = stats['goaline3']['completions'] * 2.98
         return nrzcomp + rzcomp + gl1comp + gl2comp + gl3comp
     
     def flexoppurtunity_index(self,player,season):
@@ -83,14 +83,14 @@ class Stats(object):
             stats[x]['targets'] = int(targets)
         nrzcarries = stats['non-redzone']['carries']
         rzcarries = stats['redzone']['carries'] * 1.35
-        gl1carries = stats['goaline1']['carries'] * 2.03
-        gl2carries = stats['goaline2']['carries'] * 3.79
-        gl3carries = stats['goaline3']['carries'] * 6.66
-        nrztargets = stats['non-redzone']['targets'] * 1.84
-        rztargets = stats['redzone']['targets'] * 2.83
-        gl1targets = stats['goaline1']['targets'] * 4.31
-        gl2targets = stats['goaline2']['targets'] * 5.41
-        gl3targets = stats['goaline3']['targets'] * 6.58
+        gl1carries = stats['goaline1']['carries'] * 2.94
+        gl2carries = stats['goaline2']['carries'] * 2.85    
+        gl3carries = stats['goaline3']['carries'] * 6.92
+        nrztargets = stats['non-redzone']['targets'] * 3.25
+        rztargets = stats['redzone']['targets'] * 4.20
+        gl1targets = stats['goaline1']['targets'] * 5.51
+        gl2targets = stats['goaline2']['targets'] * 7.15
+        gl3targets = stats['goaline3']['targets'] * 5.53
 
         return nrzcarries + rzcarries + gl1carries + gl2carries + gl3carries + nrztargets + rztargets + gl1targets + gl2targets + gl3targets
     def games_played(self,player,year):
@@ -124,12 +124,12 @@ class Stats(object):
                 if players[x]['Position'] == pos:
                     playerlst.append(x)
             for x in playerlst:
-                if float(players[x]['AvgPointsPerGame']) > 10 and players[x]['Oppscore'] > 10:
-                    stats.append((x,players[x]['Value']))
+                if float(players[x]['AvgPointsPerGame']) > 1 and players[x]['Oppscore'] > 1:
+                    stats.append((x,players[x]['Oppscore']))
                 if len(stats) > numresults:
-                    stats = sorted(stats, key=lambda x: x[1])
+                    stats = sorted(stats, key=lambda x: x[1], reverse = True)
                     stats.pop()
-        return sorted(stats, key=lambda x: x[1])
+        return sorted(stats, key=lambda x: x[1], reverse = True)
 
         
 

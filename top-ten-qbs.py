@@ -220,13 +220,13 @@ def display_playervalue(pos, numresults):
     p.import_json()
     data = st.top_value(p.players,pos,numresults)
     for x in data:
-        val.append([x[0],x[1],p.players[x[0]]['Oppscore'],p.players[x[0]]['Oppscorerank'],p.players[x[0]]['Salary']])
-    print tabulate(val, headers = ["Player", "Value", "Oppurtunity", "Opp Rank","Salary"])
+        val.append([x[0],x[1],p.players[x[0]]['Value'],p.players[x[0]]['Oppscorerank'],p.players[x[0]]['Salary'],float(p.players[x[0]]['Salary'])/float(x[1])])
+    print tabulate(val, headers = ["Player", "Oppurtunity", "Value", "Opp Rank","Salary","$/Opp"])
 
 
-#display_playervalue('QB', 30)
-#display_playervalue('RB', 30)
-#display_playervalue('WR', 30)
-#display_playervalue('TE', 30)
+display_playervalue('QB', 30)
+display_playervalue('RB', 30)
+display_playervalue('WR', 30)
+display_playervalue('TE', 30)
 
-get_weights('goaline3')
+#get_weights('goaline3')
