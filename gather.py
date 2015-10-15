@@ -1,4 +1,4 @@
-import csv, json, os
+import csv, json, os, test
 from tabulate import tabulate
 
 
@@ -8,39 +8,58 @@ gathered = []
 totalopp = 0
 
 qb = [
-    'Derek Carr',
+    'Tom Brady', 
     'Aaron Rodgers',
-    'Blake Bortles',
-    'Andy Dalton',
+    'Sam Bradford',
+    'Philip Rivers',
+    'Carson Palmer', 
+    'Jay Cutler',
+    'Blake Bortles', 
     'Matt Ryan',
-    'Colin Kaepernick'
+    'Marcus Mariota'
+ 
     ]
-rb = [
-    'Adrian Peterson',
+rb1 = [
+    "Le'Veon Bell",
     'Jamaal Charles',
+    'Matt Forte',
     'Latavius Murray',
-    'Mark Ingram',
-    'Joseph Randle',
-    'Devonta Freeman',
-    'Carlos Hyde',
-    'Alfred Blue',
-    'Karlos Williams']
-wr = [
+    'Devonta Freeman']
+rb2 = [
+    'Justin Forsett',
+    'Dion Lewis',
+    'LeGarrette Blount',
+    'Karlos Williams',
+    'Todd Gurley',
+    'Doug Martin',
+    'C.J. Anderson'
+    ]
+wr1 = [
     'Julio Jones',
     'Odell Beckham',
-    'Demaryius Thomas',
-    'A.J. Green',
-    'Calvin Johnson',
-    'Randall Cobb',
-    'DeAndre Hopkins',
-    'Keenan Allen',
     'Larry Fitzgerald',
+    'Keenan Allen',
+    'Julian Edelman',
+    'Demaryius Thomas'
+    ]
+wr2 = [
+    'Jeremy Maclin',
+    'Allen Hurns',
     'Amari Cooper',
     'Michael Crabtree',
-    'Allen Robinson',
-    'James Jones',
+    'Kendall Wright'
     ]
-te = ['Jason Witten', 'Jordan Reed', 'Tyler Eifert', 'Greg Olsen', 'Jimmy Graham', 'Martellus Bennett']
+wr3 = [
+    'Leonard Hankerson',
+    'Pierre Garcon',
+    'Terrance Williams',
+    'Doug Baldwin',
+    'Martavis Bryant',
+    'Eddie Royal'
+    ]
+te = ['Rob Gronkowski', 'Jordan Reed', 'Travis Kelce','Antonio Gates','Owen Daniels', 'Martellus Bennett']
+dsts = ['Bengals ', 'Cardinals ', 'Chiefs ', 'Giants ', 'Bears ', 'Jaguars ']
+allplayers = qb + rb1 + rb2 + wr1 + wr2 + wr3 + te
 
 def get_stacked(teamlst,qblst):
     stacked = []
@@ -81,25 +100,29 @@ def get_beststacked(teamlst,qb,rb,wr,te):
     return sorted(best_lineups, key = lambda k: k['Oppscore'], reverse=True) 
 
 def rbqbcheck(lineup):
-    rbpos = ['rb1', 'rb2']
-    wrpos = ['wr1', 'wr2', 'wr3']
-    results = []
     if lineup['qb']['teamAbbrev'] != lineup['rb1']['teamAbbrev'] and lineup['qb']['teamAbbrev'] !=  lineup['rb2']['teamAbbrev']:
-        for x in rbpos:
-            for y in wrpos:
-                if lineup[x]['teamAbbrev'] != lineup[y]['teamAbbrev']:
-                    results.append(True)
-    rlst = list(set(results))
-    if len(rlst) ==1:
-        return rlst[0]
-    else:
-        return False
+        return True
 
+def teflexcheck(lineup):
+    if lineup['te']['Name'] != lineup['flex']['Name']:
+        return True
 def wrwrcheck(lineup):
     if lineup['wr1']['teamAbbrev'] != (lineup['wr2']['teamAbbrev'] or lineup['wr3']['teamAbbrev']):
         if lineup['wr2']['teamAbbrev'] != (lineup['wr1']['teamAbbrev'] or lineup['wr3']['teamAbbrev']):
             if lineup['wr3']['teamAbbrev'] != (lineup['wr1']['teamAbbrev'] or lineup['wr2']['teamAbbrev']):
                 return True
+
+def wrrbcheck(lineup):
+    if lineup['rb1']['teamAbbrev'] != (lineup['wr1']['teamAbbrev'] or lineup['wr2']['teamAbbrev'] or lineup['wr2']['teamAbbrev']):
+        if lineup['rb2']['teamAbbrev'] != (lineup['wr1']['teamAbbrev'] or lineup['wr2']['teamAbbrev'] or lineup['wr2']['teamAbbrev']):
+            return True
+
+def teamcheck(lineup):
+    if rbqbcheck(lineup):
+        if wrwrcheck(lineup):
+            if wrrbcheck(lineup):
+                if teflexcheck(lineup):
+                    return True
     
 def excludeqb(lineup,name):
     if lineup['qb']['Name'] != name:
@@ -114,7 +137,17 @@ def includewr(lineup,name):
     if lineup['wr1']['Name'] == name or lineup['wr2']['Name'] == name and lineup['wr3']['Name'] == name and lineup['flex']['Name'] != name:
         return True
             
-
+def distribution(lineuplist,players):
+    positions = ['qb','rb1','rb2','wr1','wr2','wr3','te','flex']
+    roster = []
+    player_cnt = {}
+    for p in players:
+        player_cnt[p] = 0
+    for team in lineuplist:
+        for pos in positions:
+            player_cnt[team[pos]['Name']] = player_cnt[team[pos]['Name']] + 1
+    return player_cnt
+        
 def display_lineups(lineup):
     y = lineup
     print '\n'
@@ -137,8 +170,6 @@ def display_lineups(lineup):
     print y['dst']['Name'],y['dst']['Salary'], y['dst']['AvgPointsPerGame']
     print "\n"
 
-
-
 def WriteListToCSV(csv_file,csv_columns,data_list):
     try:
         with open(csv_file, 'w') as csvfile:
@@ -150,17 +181,67 @@ def WriteListToCSV(csv_file,csv_columns,data_list):
             print("I/O error({0}): {1}".format(errno, strerror))    
     return              
 
+def get_bstlineqb(lineups):
+    qbs = test.qbs()
+    rbs = test.get_rankedlist(test.rb1s())
+    print rbs
+    wrs = test.get_rankedlist(test.wr1s())
+    print wrs
+    new_lineups = []
+    for x in qbs:
+        h = 0
+        for lineup in lineups:
+           if lineup['qb']['Name'] == x:
+               if lineup['rb1']['Name'] == rbs[h]:
+                   if lineup['wr1']['Name'] == wrs[h]:
+                       if teamcheck(lineup):
+                           lst.append(lineup)
+               if lst:
+                   best.append(sorted(lst, key = lambda k: k['Oppscore'], reverse=True)[0])
+                h = h + 1
+        for z in best:
+            new_lineups.append(z)
+    return new_lineups
+
+def get_beststacked(lineups,num):
+    qbs = test.qbs()    
+    stacked = get_stacked(lineups,qbs)
+    beststacked = []
+    for q in qbs:
+        besteams = []
+        for team in stacked:
+            if team['qb']['Name'] == q:
+                if teamcheck(team):
+                    besteams.append(team)
+        z = 0
+        if besteams:
+            for x in besteams:
+          
+                while z < num:
+                    beststacked.append(sorted(besteams, key = lambda k: k['Oppscore'],reverse=True)[z])
+                    z = z + 1
+    return beststacked
             
-best = get_stacked(teams,qb)
-cnt = 0
-new_teams = []
-for x in teams:
-    if x["Oppscore"] > 150 and x['qb']['Name'] == 'Tom Brady':
-        display_lineups(x)
-        cnt = cnt + 1
-        new_teams.append([x['qb']['Name'],x['rb1']['Name'],x['rb2']['Name'],x['wr1']['Name'],x['wr2']['Name'],x['wr3']['Name'],x['te']['Name'],x['flex']['Name'],x['dst']['Name']])
-#print new_teams
-print cnt
+
+#best = get_stacked(teams,qb)
+#cnt = 0
+#new_teams = []
+#for q in test.qbs():
+#    for y in test.get_rbcomborank(test.get_rbcombos, test.rb1s, test.rb2s):
+#        bestrbteams = []
+#        for x in best:
+#            if x['rb1']['Name'] == y[0] and x['rb2']['Name'] == y[1]: 
+#                if teamcheck(x):
+#                    bestrbteams.append(x)
+#        z = 0
+#        while z < 1:
+#            new_teams.append(sorted(bestrbteams, key = lambda k: k['Oppscore'],reverse=True)[z])
+#            z = z + 1
+b = get_bstlineqb(teams)
+for y in b:
+    display_lineups(y)
+print distribution(b,allplayers)
+
 
 #csv_columns = ['QB','RB1','RB2','WR1','WR2','WR3','TE','FLEX','DST']
 #csv_data_list = new_teams 

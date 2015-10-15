@@ -224,9 +224,9 @@ def display_playervalue(pos, numresults):
     print tabulate(val, headers = ["Player", "Value", "Oppurtunity", "Opp Rank","Salary"])
 
 
-display_playervalue('QB', 30)
-display_playervalue('RB', 30)
-display_playervalue('WR', 30)
-display_playervalue('TE', 30)
+#display_playervalue('QB', 30)
+#display_playervalue('RB', 30)
+#display_playervalue('WR', 30)
+#display_playervalue('TE', 30)
 
-
+get_weights('goaline3')
