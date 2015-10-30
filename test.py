@@ -1,4 +1,5 @@
 import team, decimal, nfldb, os, json, heapq, time, itertools, random
+import sqlite3 as lite
 from operator import itemgetter
 from tabulate import tabulate
 
@@ -8,74 +9,49 @@ player = p.players
 
 def qbs():
     qb = [
-        'Tom Brady', 
-        'Aaron Rodgers',
-        'Sam Bradford',
-        'Philip Rivers',
-        'Carson Palmer', 
-        'Jay Cutler',
-        'Blake Bortles', 
+        'Matthew Stafford', 
+        'Andy Dalton',
         'Matt Ryan',
-        'Marcus Mariota'
+        'Philip Rivers',
+        'Ryan Fitzpatrick',
+        'Brian Hoyer'
         ]
     return qb
 
 def rb1s():
     rb1 = [
         "Le'Veon Bell", 
-        "Le'Veon Bell", 
-        'Jamaal Charles',
-        'Latavius Murray',
         'Devonta Freeman',
-        'Jamaal Charles',
-        'Matt Forte',
-        'Latavius Murray',
-        'Devonta Freeman',
-        'Jamaal Charles',
-        'Matt Forte',
-        'Latavius Murray',
+        'Todd Gurley',
+        'Charcandrick West',
+        'Doug Martin',
+        'Danny Woodhead',
+        'Chris Johnson',
+        'Antonio Andrews'
         ]
     return rb1
 
 def rb2s():
     rb2 = [
-        'Justin Forsett', 
-        'Justin Forsett', 
-        'Justin Forsett', 
-        'Justin Forsett', 
-        'Dion Lewis', 
-        'Dion Lewis', 
-        'Dion Lewis', 
-        'LeGarrette Blount',
-        'LeGarrette Blount',
-        'Karlos Williams',
-        'Karlos Williams',
-        'Todd Gurley',
-        'Todd Gurley',
-        'Todd Gurley',
-        'Doug Martin',
-        'C.J. Anderson',
-        'C.J. Anderson',
-        'Karlos Williams',
-        'Todd Gurley',
-        'Doug Martin',
-        'C.J. Anderson'
         ]
     return rb2
 
 def wr1s():
     wr1 = [
         'Julio Jones', 
-        'Julio Jones', 
-        'Odell Beckham', 
-        'Odell Beckham', 
-        'Larry Fitzgerald', 
-        'Larry Fitzgerald', 
         'Keenan Allen',
-        'Keenan Allen',
-        'Julian Edelman',
-        'Demaryius Thomas',
-        'Demaryius Thomas'
+        'Stefon Diggs',
+        'DeAndre Hopkins',
+        'Calvin Johnson',
+        'Jeremy Maclin',
+        'Antonio Brown',
+        'Martavis Bryant',
+        'Alshon Jeffery',
+        'Mike Evans',
+        'Kendall Wright',
+        'Marvin Jones',
+        'Brandon Marshall',
+        'Ted Ginn Jr.'
         ]
     return wr1
 
@@ -110,30 +86,30 @@ def wr3s():
 
 def tes():
     te = [
-        'Rob Gronkowski', 
-        'Travis Kelce',
-        'Antonio Gates',
-        'Owen Daniels', 
-        'Martellus Bennett'
+        'Tyler Eifert',
+        'Ladarius Green',
+        'Jacob Tamme',
+        'Eric Ebron',
+        'Benjamin Watson',
         ]
     return te
 
 def dsts():    
     dst = [
-        'Bengals ', 
         'Cardinals ', 
-        'Chiefs ', 
-        'Giants ', 
-        'Bears ', 
-        'Jaguars '
+        'Falcons ', 
+        'Rams ',
+        'Seahawks ',
+        'Panthers ',
         ]
     return dst
 
 def flex():
-    flx = wr1s() + wr2s() + wr3s() + te()
+    flx = wr1s() + tes() + rb1s()
     return flx
 
-def get_flex(salary,r1,r2,w1,w2,w3,te,choices):
+def get_flex(salary,r1,r2,w1,w2,w3,te):
+    choices = flex()
     chosen = [r1,r2,w1,w2,w3,te]
     posflex = []
     for x in choices:
@@ -142,8 +118,9 @@ def get_flex(salary,r1,r2,w1,w2,w3,te,choices):
                 posflex.append((x,player[x]['Salary']))
     return sorted(posflex, key=lambda y: y[1],reverse=True)[0][0]
 
-def get_dst(defense):
-    std = random.choice(defense)
+def get_dst():
+    dfense = dsts()
+    std = random.choice(dfense)
     return std
     
 def get_rankedlist(listname):
@@ -155,16 +132,14 @@ def get_rankedlist(listname):
         rankedlist.append(x[0])
     return rankedlist
 
-def get_rbcombos(rb1,rb2):
+def get_rbcombos(rb1):
     r1 = rb1()
-    r2 = rb2()
-    rbs = [r1,r2]
     rbcombo = []
-    for combo in itertools.product(*rbs):
+    for combo in itertools.combinations(r1,2):
         rbcombo.append(combo)
     return rbcombo
-def get_rbcomborank(rbcombos, rb1, rb2):
-    combos = rbcombos(rb1, rb2)
+def get_rbcomborank(rbcombos, rb1):
+    combos = rbcombos(rb1)
     ranked = []
     nameonly = []
     for combo in combos:
@@ -174,18 +149,14 @@ def get_rbcomborank(rbcombos, rb1, rb2):
         nameonly.append((x[0], x[1], x[2]))
     return nameonly
         
-
-def get_wrcombos(wr1, wr2, wr3):
+def get_wrcombos(wr1):
     w1 = wr1()
-    w2 = wr2()
-    w3 = wr3()
-    wrs = [w1, w2, w3]
     wrcombo = []
-    for combo in itertools.product(*wrs):
+    for combo in itertools.combinations(w1,3):
         wrcombo.append(combo)
     return wrcombo
-def get_wrcomborank(wrcombos,wr1,wr2,wr3):
-    combos = wrcombos(wr1,wr2,wr3)
+def get_wrcomborank(wrcombos,wr1):
+    combos = wrcombos(wr1)
     ranked = []
     nameonly = []
     for combo in combos:
@@ -195,13 +166,35 @@ def get_wrcomborank(wrcombos,wr1,wr2,wr3):
         nameonly.append((x[0], x[1], x[2]))
     return nameonly
 
+def check_team(team):
+    if team['TeamSalary'] <= 50000:
+        if team['rb1']['teamAbbrev'] != team['wr1']['teamAbbrev'] and team['rb1']['teamAbbrev'] != team['wr2']['teamAbbrev'] and team['rb1']['teamAbbrev'] != team['wr3']['teamAbbrev'] and team['rb1']['teamAbbrev'] != team['te']['teamAbbrev'] and team['rb1']['teamAbbrev'] != team['flex']['teamAbbrev']:
+            if team['rb2']['teamAbbrev'] != team['wr1']['teamAbbrev'] and team['rb2']['teamAbbrev'] != team['wr2']['teamAbbrev'] and team['rb2']['teamAbbrev'] != team['wr3']['teamAbbrev'] and team['rb2']['teamAbbrev'] != team['te']['teamAbbrev'] and team['rb2']['teamAbbrev'] != team['flex']['teamAbbrev']:
+                if team['qb']['teamAbbrev'] != team['rb1']['teamAbbrev'] and team['qb']['teamAbbrev'] != team['rb2']['teamAbbrev']:
+                    if team['wr1']['teamAbbrev'] != team['flex']['teamAbbrev'] and team['wr2']['teamAbbrev'] != team['flex']['teamAbbrev'] and team['wr3']['teamAbbrev'] != team['flex']['teamAbbrev']:
+                        if team['wr1']['teamAbbrev'] != team['te']['teamAbbrev'] and team['wr2']['teamAbbrev'] != team['te']['teamAbbrev'] and team['wr3']['teamAbbrev'] != team['te']['teamAbbrev']:
+                            return True
+
+def connect(command,stats):
+    con = lite.connect('dksalary.db')
+
+    with con:
+        cur = con.cursor()
+        cur.execute(command,stats)
+def update_teams(team):
+    total = 0
+    x = team
+    connect("INSERT INTO teams (qb,rb1,rb2,wr1,wr2,wr3,te,flex,dst,oppscore,teamsalary,ppo,teamppg) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)",(x['qb']['Name'],x['rb1']['Name'],x['rb2']['Name'],x['wr1']['Name'],x['wr2']['Name'],x['wr3']['Name'],x['te']['Name'],x['flex']['Name'], x['dst']['Name'],x['Oppscore'],x['TeamSalary'],x['PPO'],x['Teamppg']))
 
 
-#print len(get_rbcomborank(get_rbcombos, rb1s, rb2s))
-#print len(get_wrcomborank(get_wrcombos, wr1s, wr2s, wr3s))
-#print get_wrcombos(wr1s,wr2s)
-#allpos = [qb,rbcombo,wrcombo,te]
+#print len(get_rbcomborank(get_rbcombos, rb1s))
+#print len(get_wrcomborank(get_wrcombos, wr1s))
+##print get_wrcombos(wr1s,wr2s)
+#count = 0
+#allpos = [qbs(),get_rbcombos(rb1s),get_wrcombos(wr1s),tes()]
+#print allpos
 #lineup = []
+#
 #for x in itertools.product(*allpos):
 #    salary = 0
 #    qb = x[0]
@@ -211,7 +204,7 @@ def get_wrcomborank(wrcombos,wr1,wr2,wr3):
 #    wr2 = x[2][1]
 #    wr3 = x[2][2]
 #    te = x[3]
-#    d = get_dst(dsts)
+#    d = get_dst()
 #    t = [
 #            ('QB',qb,player[qb]['Salary']),
 #            ("RB1",rb1,player[rb1]['Salary']),
@@ -225,17 +218,19 @@ def get_wrcomborank(wrcombos,wr1,wr2,wr3):
 #    for y in t:
 #        salary = salary + int(y[2])
 #    if salary > 38000 and salary < 45600:
-#        flx = get_flex(salary,rb1,rb2,wr1,wr2,wr3,te,flex)
+#        flx = get_flex(salary,rb1,rb2,wr1,wr2,wr3,te)
 #        t.append(('FLEX',flx,player[flx]['Salary']))
 #        new_team = team.Team(qb,rb1,rb2,wr1,wr2,wr3,te,flx,d)
 #        new_team.main()
-#        if new_team.teamopp > 190:
+#        if check_team(new_team.team):
 #            if new_team.team not in lineup:
-#                lineup.append(new_team.team)
+#                update_teams(new_team.team)
 #                count = count + 1
 #                print count
-#                print qb
-#
+#                print new_team.qb
+#        else:
+#            print 'no'
+
 cntr = 0
 if True == False:
     for y in lineup:
